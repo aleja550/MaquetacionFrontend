@@ -23,7 +23,7 @@ public class GestionarRecordatoriosActivity extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
     private LinearLayout recordatoriosContainer;
-    private TextView statTotal, statActivos, statProximos, statCompletados;
+    // private TextView statTotal, statActivos, statProximos, statCompletados;
     private String currentFilter = "Todos"; // Filtro actual: "Todos", "Hoy", "Atrasados", "Completados"
     private String currentSearchQuery = ""; // Query actual de búsqueda
 
@@ -39,31 +39,31 @@ public class GestionarRecordatoriosActivity extends AppCompatActivity {
         setContentView(R.layout.activity_gestionar_recordatorios);
 
         drawerLayout = findViewById(R.id.drawer_layout);
-        recordatoriosContainer = findViewById(R.id.recordatorios_container);
+        recordatoriosContainer = findViewById(R.id.reminders_container);
         
-        // Statistics TextViews
-        statTotal = findViewById(R.id.stat_total);
-        statActivos = findViewById(R.id.stat_activos);
-        statProximos = findViewById(R.id.stat_proximos);
-        statCompletados = findViewById(R.id.stat_completados);
+        // No hay statistics TextViews en el nuevo layout, los números están hardcodeados
+        // statTotal = findViewById(R.id.stat_total);
+        // statActivos = findViewById(R.id.stat_activos);  
+        // statProximos = findViewById(R.id.stat_proximos);
+        // statCompletados = findViewById(R.id.stat_completados);
         
         ImageView menuButton = findViewById(R.id.menu_button);
-        EditText searchBar = findViewById(R.id.search_bar);
+        EditText searchBar = findViewById(R.id.search_edittext);
         FloatingActionButton fabAdd = findViewById(R.id.fab_add);
         
         // Tab filters
-        TextView tabTodos = findViewById(R.id.tab_todos);
-        TextView tabHoy = findViewById(R.id.tab_hoy);
-        TextView tabAtrasados = findViewById(R.id.tab_atrasados);
-        TextView tabCompletados = findViewById(R.id.tab_completados);
+        LinearLayout tabTodos = findViewById(R.id.tab_todos);
+        LinearLayout tabHoy = findViewById(R.id.tab_hoy);
+        LinearLayout tabAtrasados = findViewById(R.id.tab_atrasados);
+        LinearLayout tabCompletados = findViewById(R.id.tab_completados);
         
         // Navigation menu items
-        LinearLayout navHome = findViewById(R.id.nav_home);
-        LinearLayout navRecordatorios = findViewById(R.id.nav_recordatorios);
-        LinearLayout navCategorias = findViewById(R.id.nav_categorias);
-        LinearLayout navEstadisticas = findViewById(R.id.nav_estadisticas);
-        LinearLayout navConfiguracion = findViewById(R.id.nav_configuracion);
-        LinearLayout navAyuda = findViewById(R.id.nav_ayuda);
+        TextView navHome = findViewById(R.id.nav_home);
+        TextView navRecordatorios = findViewById(R.id.nav_recordatorios);
+        TextView navCategorias = findViewById(R.id.nav_categorias);
+        TextView navEstadisticas = findViewById(R.id.nav_estadisticas);
+        TextView navConfiguracion = findViewById(R.id.nav_configuracion);
+        TextView navAyuda = findViewById(R.id.nav_ayuda);
 
         // Search functionality
         searchBar.addTextChangedListener(new TextWatcher() {
@@ -202,11 +202,12 @@ public class GestionarRecordatoriosActivity extends AppCompatActivity {
     }
     
     private void updateStatistics() {
-        RecordatoriosManager manager = RecordatoriosManager.getInstance();
-        statTotal.setText(String.valueOf(manager.getTotalCount()));
-        statActivos.setText(String.valueOf(manager.getActivosCount()));
-        statProximos.setText(String.valueOf(manager.getProximosCount()));
-        statCompletados.setText(String.valueOf(manager.getCompletadosCount()));
+        // Los contadores ahora están hardcodeados en el layout XML
+        // RecordatoriosManager manager = RecordatoriosManager.getInstance();
+        // statTotal.setText(String.valueOf(manager.getTotalCount()));
+        // statActivos.setText(String.valueOf(manager.getActivosCount()));
+        // statProximos.setText(String.valueOf(manager.getProximosCount()));
+        // statCompletados.setText(String.valueOf(manager.getCompletadosCount()));
     }
     
     private void updateRecordatoriosList() {
@@ -403,17 +404,17 @@ public class GestionarRecordatoriosActivity extends AppCompatActivity {
         return Color.parseColor("#666666");
     }
 
-    private void selectTab(TextView selectedTab, TextView... otherTabs) {
+    private void selectTab(LinearLayout selectedTab, LinearLayout... otherTabs) {
         // Set selected tab style
-        selectedTab.setTextColor(0xFFFFFFFF);
-        selectedTab.setBackgroundColor(0xFF4A90E2);
-        selectedTab.setTextSize(14);
+        selectedTab.setBackgroundResource(R.drawable.activate_button_background);
+        TextView selectedText = (TextView) selectedTab.getChildAt(0);
+        selectedText.setTextColor(0xFFFFFFFF);
         
         // Set unselected tabs style
-        for (TextView tab : otherTabs) {
-            tab.setTextColor(0xFF666666);
+        for (LinearLayout tab : otherTabs) {
             tab.setBackgroundColor(0x00000000); // Transparent
-            tab.setTextSize(14);
+            TextView tabText = (TextView) tab.getChildAt(0);
+            tabText.setTextColor(0xFF666666);
         }
     }
 

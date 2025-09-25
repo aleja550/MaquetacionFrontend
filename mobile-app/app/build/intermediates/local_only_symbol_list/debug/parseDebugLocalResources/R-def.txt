@@ -43,6 +43,7 @@ drawable category_chip_ejercicio
 drawable category_chip_estudio
 drawable category_chip_salud
 drawable category_chip_trabajo
+drawable circle_background
 drawable circle_red
 drawable ic_arrow_back
 drawable ic_arrow_drop_down
@@ -50,6 +51,7 @@ drawable ic_arrow_forward
 drawable ic_arrow_right
 drawable ic_bell_ring_outline
 drawable ic_category
+drawable ic_chart
 drawable ic_check_circle
 drawable ic_delete
 drawable ic_edit
@@ -68,6 +70,8 @@ drawable ic_nav_home
 drawable ic_nav_recordatorios
 drawable ic_notification_bell
 drawable ic_notifications
+drawable ic_person
+drawable ic_reminder
 drawable ic_search
 drawable ic_settings
 drawable ic_stats
@@ -76,6 +80,7 @@ drawable nav_item_background
 drawable radio_selected
 drawable reminder_card_background
 drawable search_background
+drawable tab_selector
 id asterisco_fecha
 id asterisco_titulo
 id back_button
@@ -123,6 +128,7 @@ id nav_item_icon
 id nav_item_title
 id nav_recordatorios
 id nav_view
+id navigation_view
 id notification_button
 id radio_aleatorio
 id radio_frase
@@ -130,12 +136,9 @@ id radio_matematica
 id rb_aleatorio
 id rb_frase
 id rb_matematica
-id recordatorios_container
+id reminders_container
 id search_bar
-id stat_activos
-id stat_completados
-id stat_proximos
-id stat_total
+id search_edittext
 id switch_desafio
 id tab_atrasados
 id tab_completados

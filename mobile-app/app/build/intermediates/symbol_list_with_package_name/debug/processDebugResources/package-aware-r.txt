@@ -3036,6 +3036,7 @@ drawable category_chip_ejercicio
 drawable category_chip_estudio
 drawable category_chip_salud
 drawable category_chip_trabajo
+drawable circle_background
 drawable circle_red
 drawable design_fab_background
 drawable design_ic_visibility
@@ -3055,6 +3056,7 @@ drawable ic_call_answer_video_low
 drawable ic_call_decline
 drawable ic_call_decline_low
 drawable ic_category
+drawable ic_chart
 drawable ic_check_circle
 drawable ic_clear_black_24
 drawable ic_clock_black_24dp
@@ -3083,6 +3085,8 @@ drawable ic_nav_home
 drawable ic_nav_recordatorios
 drawable ic_notification_bell
 drawable ic_notifications
+drawable ic_person
+drawable ic_reminder
 drawable ic_search
 drawable ic_search_black_24
 drawable ic_settings
@@ -3165,6 +3169,7 @@ drawable notify_panel_notification_icon_bg
 drawable radio_selected
 drawable reminder_card_background
 drawable search_background
+drawable tab_selector
 drawable test_level_drawable
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -3524,6 +3529,7 @@ id navigation_bar_item_labels_group
 id navigation_bar_item_large_label_view
 id navigation_bar_item_small_label_view
 id navigation_header_container
+id navigation_view
 id never
 id neverCompleteToEnd
 id neverCompleteToStart
@@ -3582,8 +3588,8 @@ id ratio
 id rb_aleatorio
 id rb_frase
 id rb_matematica
-id recordatorios_container
 id rectangles
+id reminders_container
 id report_drawn
 id reverseSawtooth
 id right
@@ -3607,6 +3613,7 @@ id search_bar
 id search_button
 id search_close_btn
 id search_edit_frame
+id search_edittext
 id search_go_btn
 id search_mag_icon
 id search_plate
@@ -3646,10 +3653,6 @@ id start
 id startHorizontal
 id startToEnd
 id startVertical
-id stat_activos
-id stat_completados
-id stat_proximos
-id stat_total
 id staticLayout
 id staticPostLayout
 id stop
