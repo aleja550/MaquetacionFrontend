@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">RemindMe+</string>
+    
+    <!-- Universidad -->
+    <string name="universidad">Universidad de los Andes</string>
+    <string name="proyecto_academico">UX mejoramiento de la experiencia de usuario</string>
+    <string name="navigation_header_subtitle">Tu asistente de recordatorios</string>
+    <string name="navigation_header_university">Universidad de los Andes</string>
+    <string name="navigation_drawer_open">Abrir menú de navegación</string>
+    <string name="navigation_drawer_close">Cerrar menú de navegación</string>
+    
+    <!-- Pantalla Principal -->
+    <string name="home_title">Recordatorios</string>
+    <string name="home_subtitle">Gestiona tus recordatorios inteligentes</string>
+    <string name="proximo_recordatorio">Próximo recordatorio</string>
+    <string name="estudiar">Estudiar</string>
+    <string name="ejercicio">Ejercicio</string>
+    <string name="trabajo">Trabajo</string>
+    <string name="recordatorios_activos">Recordatorios activos</string>
+    
+    <!-- Menú Lateral -->
+    <string name="menu_recordatorios">Recordatorios</string>
+    <string name="menu_categorias">Categorías</string>
+    <string name="menu_estadisticas">Estadísticas</string>
+    <string name="menu_configuracion">Configuración</string>
+    <string name="menu_ayuda">Ayuda</string>
+    <string name="ayuda">Ayuda</string>
+    
+    <!-- Gestionar Recordatorios -->
+    <string name="gestionar_recordatorios">Gestionar Recordatorios</string>
+    <string name="nuevo_recordatorio">Nuevo Recordatorio</string>
+    <string name="editar_recordatorio">Editar Recordatorio</string>
+    <string name="eliminar_recordatorio">Eliminar Recordatorio</string>
+    
+    <!-- Nuevo Recordatorio -->
+    <string name="titulo_recordatorio">Título del recordatorio</string>
+    <string name="descripcion_recordatorio">Descripción</string>
+    <string name="fecha_hora">Fecha y Hora</string>
+    <string name="categoria">Categoría</string>
+    <string name="tipo_desafio">Tipo de Desafío</string>
+    <string name="desafio_matematico">Desafío Matemático</string>
+    <string name="frase_motivacional">Frase Motivacional</string>
+    <string name="guardar">Guardar</string>
+    <string name="cancelar">Cancelar</string>
+    
+    <!-- Gestionar Categorías -->
+    <string name="gestionar_categorias">Gestionar Categorías</string>
+    <string name="nueva_categoria">Nueva Categoría</string>
+    <string name="editar_categoria">Editar Categoría</string>
+    <string name="eliminar_categoria">Eliminar Categoría</string>
+    
+    <!-- Nueva Categoría -->
+    <string name="nombre_categoria">Nombre de la categoría</string>
+    <string name="color_categoria">Color de la categoría</string>
+    <string name="icono_categoria">Ícono de la categoría</string>
+    
+    <!-- Alarma Desafío -->
+    <string name="desafio_matematico_title">Desafío Matemático</string>
+    <string name="resuelve_para_continuar">Resuelve para continuar</string>
+    <string name="respuesta">Respuesta</string>
+    <string name="verificar">Verificar</string>
+    <string name="correcto">¡Correcto!</string>
+    <string name="incorrecto">Incorrecto, intenta de nuevo</string>
+    
+    <!-- Configuración -->
+    <string name="configuracion">Configuración</string>
+    <string name="volumen_alarma">Volumen de Alarma</string>
+    <string name="vibracion">Vibración</string>
+    <string name="dificultad_desafios">Dificultad de Desafíos</string>
+    <string name="facil">Fácil</string>
+    <string name="medio">Medio</string>
+    <string name="dificil">Difícil</string>
+    
+    <!-- Estadísticas -->
+    <string name="estadisticas">Estadísticas</string>
+    <string name="recordatorios_completados">Recordatorios Completados</string>
+    <string name="racha_actual">Racha Actual</string>
+    <string name="desafios_resueltos">Desafíos Resueltos</string>
+    
+    <!-- Mensajes -->
+    <string name="recordatorio_creado">Recordatorio creado exitosamente</string>
+    <string name="recordatorio_eliminado">Recordatorio eliminado exitosamente</string>
+    <string name="categoria_creada">Categoría creada exitosamente</string>
+    <string name="categoria_eliminada">Categoría eliminada exitosamente</string>
+    
+    <!-- Botones -->
+    <string name="aceptar">Aceptar</string>
+    <string name="cerrar">Cerrar</string>
+    <string name="continuar">Continuar</string>
+    <string name="atras">Atrás</string>
+    
+</resources>
