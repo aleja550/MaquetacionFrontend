@@ -22,9 +22,14 @@ public class NuevaCategoriaActivity extends AppCompatActivity {
     private LinearLayout coloresContainer;
     private RadioGroup vibracionGroup;
     private Button btnCrearCategoria;
+    private TextView headerTitle;
     
     private String iconoSeleccionado = "🎯"; // Icono por defecto
     private String colorSeleccionado = "#10B981"; // Verde por defecto
+    
+    // Variables para modo edición
+    private boolean modoEdicion = false;
+    private Categoria categoriaAEditar = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +42,7 @@ public class NuevaCategoriaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_nueva_categoria);
         
         inicializarVistas();
+        verificarModoEdicion();
         configurarIconos();
         configurarColores();
         configurarEventos();
@@ -48,9 +54,50 @@ public class NuevaCategoriaActivity extends AppCompatActivity {
         coloresContainer = findViewById(R.id.colores_container);
         vibracionGroup = findViewById(R.id.vibracion_group);
         btnCrearCategoria = findViewById(R.id.btn_crear_categoria);
+        headerTitle = findViewById(R.id.header_title);
         
         ImageView btnBack = findViewById(R.id.btn_back);
         btnBack.setOnClickListener(v -> onBackPressed());
+    }
+    
+    private void verificarModoEdicion() {
+        Intent intent = getIntent();
+        modoEdicion = intent.getBooleanExtra("MODO_EDICION", false);
+        
+        if (modoEdicion) {
+            // Cambiar título del header
+            if (headerTitle != null) {
+                headerTitle.setText("EDITAR CATEGORÍA");
+            }
+            
+            // Cambiar texto del botón
+            btnCrearCategoria.setText("GUARDAR CAMBIOS");
+            
+            // Obtener datos de la categoría a editar
+            String nombreCategoria = intent.getStringExtra("CATEGORIA_NOMBRE");
+            String iconoCategoria = intent.getStringExtra("CATEGORIA_ICONO");
+            String colorCategoria = intent.getStringExtra("CATEGORIA_COLOR");
+            String descripcionCategoria = intent.getStringExtra("CATEGORIA_DESCRIPCION");
+            
+            // Buscar la categoría original para poder actualizarla
+            for (Categoria categoria : CategoriasManager.getInstance().getCategorias()) {
+                if (categoria.getNombre().equals(nombreCategoria)) {
+                    categoriaAEditar = categoria;
+                    break;
+                }
+            }
+            
+            // Rellenar campos con datos existentes
+            if (nombreCategoria != null) {
+                etNombre.setText(nombreCategoria);
+            }
+            if (iconoCategoria != null && !iconoCategoria.isEmpty()) {
+                iconoSeleccionado = iconoCategoria;
+            }
+            if (colorCategoria != null && !colorCategoria.isEmpty()) {
+                colorSeleccionado = colorCategoria;
+            }
+        }
     }
     
     private void configurarIconos() {
@@ -78,9 +125,23 @@ public class NuevaCategoriaActivity extends AppCompatActivity {
             iconosContainer.addView(iconoView);
         }
         
-        // Seleccionar el primer ícono por defecto
-        if (iconosContainer.getChildCount() > 0) {
-            actualizarSeleccionIcono((TextView) iconosContainer.getChildAt(0));
+        // Seleccionar el ícono correspondiente (por defecto el primero)
+        TextView iconoASeleccionar = null;
+        for (int i = 0; i < iconosContainer.getChildCount(); i++) {
+            TextView iconoView = (TextView) iconosContainer.getChildAt(i);
+            if (iconoView.getText().toString().equals(iconoSeleccionado)) {
+                iconoASeleccionar = iconoView;
+                break;
+            }
+        }
+        
+        // Si no se encontró el ícono específico, seleccionar el primero
+        if (iconoASeleccionar == null && iconosContainer.getChildCount() > 0) {
+            iconoASeleccionar = (TextView) iconosContainer.getChildAt(0);
+        }
+        
+        if (iconoASeleccionar != null) {
+            actualizarSeleccionIcono(iconoASeleccionar);
         }
     }
     
@@ -106,9 +167,27 @@ public class NuevaCategoriaActivity extends AppCompatActivity {
             coloresContainer.addView(colorView);
         }
         
-        // Seleccionar el primer color por defecto
-        if (coloresContainer.getChildCount() > 0) {
-            actualizarSeleccionColor(coloresContainer.getChildAt(0));
+        // Seleccionar el color correspondiente (por defecto el primero)
+        View colorASeleccionar = null;
+        for (int i = 0; i < coloresContainer.getChildCount(); i++) {
+            View colorView = coloresContainer.getChildAt(i);
+            android.graphics.drawable.ColorDrawable colorDrawable = (android.graphics.drawable.ColorDrawable) colorView.getBackground();
+            int colorInt = colorDrawable.getColor();
+            String colorHex = String.format("#%06X", (0xFFFFFF & colorInt));
+            
+            if (colorHex.equalsIgnoreCase(colorSeleccionado)) {
+                colorASeleccionar = colorView;
+                break;
+            }
+        }
+        
+        // Si no se encontró el color específico, seleccionar el primero
+        if (colorASeleccionar == null && coloresContainer.getChildCount() > 0) {
+            colorASeleccionar = coloresContainer.getChildAt(0);
+        }
+        
+        if (colorASeleccionar != null) {
+            actualizarSeleccionColor(colorASeleccionar);
         }
     }
     
@@ -177,21 +256,42 @@ public class NuevaCategoriaActivity extends AppCompatActivity {
         RadioButton vibracionSeleccionada = findViewById(vibracionGroup.getCheckedRadioButtonId());
         String tipoVibracion = vibracionSeleccionada != null ? vibracionSeleccionada.getText().toString() : "Suave";
         
-        // Crear la nueva categoría
-        Categoria nuevaCategoria = new Categoria(nombre, iconoSeleccionado, colorSeleccionado, tipoVibracion);
-        
-        // Agregar al manager
-        CategoriasManager.getInstance().agregarCategoria(nuevaCategoria);
-        
-        // Navegar a pantalla de éxito
-        Intent intent = new Intent(this, CategoriaCreadaExitosamenteActivity.class);
-        intent.putExtra("CATEGORIA_NOMBRE", nombre);
-        intent.putExtra("CATEGORIA_ICONO", iconoSeleccionado);
-        intent.putExtra("CATEGORIA_COLOR", colorSeleccionado);
-        intent.putExtra("CATEGORIA_VIBRACION", tipoVibracion);
-        startActivity(intent);
-        
-        // Cerrar esta actividad
-        finish();
+        if (modoEdicion && categoriaAEditar != null) {
+            // Modo edición: actualizar categoría existente
+            boolean actualizado = CategoriasManager.getInstance().actualizarCategoria(
+                categoriaAEditar,
+                nombre,
+                iconoSeleccionado,
+                colorSeleccionado,
+                tipoVibracion
+            );
+            
+            if (actualizado) {
+                // Mostrar toast y volver a gestionar categorías
+                Toast.makeText(this, "Categoría editada correctamente", Toast.LENGTH_SHORT).show();
+                
+                Intent gestionarIntent = new Intent(this, GestionarCategoriasActivity.class);
+                gestionarIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(gestionarIntent);
+                finish();
+            }
+        } else {
+            // Modo crear: nueva categoría
+            Categoria nuevaCategoria = new Categoria(nombre, iconoSeleccionado, colorSeleccionado, tipoVibracion);
+            
+            // Agregar al manager
+            CategoriasManager.getInstance().agregarCategoria(nuevaCategoria);
+            
+            // Navegar a pantalla de éxito
+            Intent intent = new Intent(this, CategoriaCreadaExitosamenteActivity.class);
+            intent.putExtra("CATEGORIA_NOMBRE", nombre);
+            intent.putExtra("CATEGORIA_ICONO", iconoSeleccionado);
+            intent.putExtra("CATEGORIA_COLOR", colorSeleccionado);
+            intent.putExtra("CATEGORIA_VIBRACION", tipoVibracion);
+            startActivity(intent);
+            
+            // Cerrar esta actividad
+            finish();
+        }
     }
 }

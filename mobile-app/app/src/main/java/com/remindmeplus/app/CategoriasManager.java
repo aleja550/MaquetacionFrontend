@@ -79,6 +79,29 @@ public class CategoriasManager {
         return removed;
     }
 
+    public boolean actualizarCategoria(Categoria categoriaOriginal, String nuevoNombre, String nuevoEmoji, String nuevoColor, String nuevaDescripcion) {
+        // Buscar la categoría original en la lista
+        int index = categorias.indexOf(categoriaOriginal);
+        if (index != -1) {
+            // Actualizar los datos de la categoría existente
+            categoriaOriginal.setNombre(nuevoNombre);
+            categoriaOriginal.setEmoji(nuevoEmoji);
+            categoriaOriginal.setColor(nuevoColor);
+            categoriaOriginal.setDescripcion(nuevaDescripcion);
+            
+            // Actualizar también en la lista filtrada si está presente
+            if (categoriasFiltradas.contains(categoriaOriginal)) {
+                int filteredIndex = categoriasFiltradas.indexOf(categoriaOriginal);
+                if (filteredIndex != -1) {
+                    categoriasFiltradas.set(filteredIndex, categoriaOriginal);
+                }
+            }
+            
+            return true;
+        }
+        return false;
+    }
+
     public int getTotalCategorias() {
         return categorias.size();
     }

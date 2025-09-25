@@ -293,7 +293,14 @@ public class GestionarCategoriasActivity extends AppCompatActivity {
 
         // Configurar listeners de botones
         btnEdit.setOnClickListener(v -> {
-            // TODO: Implementar editar categoría
+            // Navegar a NuevaCategoriaActivity en modo edición
+            Intent intent = new Intent(GestionarCategoriasActivity.this, NuevaCategoriaActivity.class);
+            intent.putExtra("MODO_EDICION", true);
+            intent.putExtra("CATEGORIA_NOMBRE", categoria.getNombre());
+            intent.putExtra("CATEGORIA_ICONO", categoria.getEmoji());
+            intent.putExtra("CATEGORIA_COLOR", categoria.getColor());
+            intent.putExtra("CATEGORIA_DESCRIPCION", categoria.getDescripcion());
+            startActivity(intent);
         });
 
         btnDelete.setOnClickListener(v -> {
