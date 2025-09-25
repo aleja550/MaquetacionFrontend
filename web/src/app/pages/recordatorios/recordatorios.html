@@ -1,0 +1,104 @@
+<!-- Breadcrumb -->
+<div class="mb-8">
+  <nav class="flex items-center space-x-2 text-gray-600">
+    <span class="font-montserrat text-lg">Dashboard</span>
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 16 16">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.64645 3.14645C5.45118 3.34171 5.45118 3.65829 5.64645 3.85355L9.79289 8L5.64645 12.1464C5.45118 12.3417 5.45118 12.6583 5.64645 12.8536C5.84171 13.0488 6.15829 13.0488 6.35355 12.8536L10.8536 8.35355C11.0488 8.15829 11.0488 7.84171 10.8536 7.64645L6.35355 3.14645C6.15829 2.95118 5.84171 2.95118 5.64645 3.14645Z"/>
+    </svg>
+    <span class="font-montserrat text-lg">Recordatorios</span>
+  </nav>
+</div>
+
+<!-- Header with Title and New Button -->
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
+  <h2 class="text-mono font-montserrat text-2xl lg:text-3xl font-bold">Mis Recordatorios</h2>
+  <button 
+    (click)="onNewReminder()"
+    class="bg-azul-button text-blanco font-montserrat text-sm font-bold px-4 py-2 rounded-lg hover:bg-azul-menu-selector transition-colors">
+    + Nuevo Recordatorio
+  </button>
+</div>
+
+<!-- Reminders Table -->
+<div class="bg-blanco rounded-lg shadow-card overflow-hidden mb-8">
+  <!-- Table Header -->
+  <div class="bg-gray-600 text-blanco">
+    <div class="grid grid-cols-1 md:grid-cols-5 gap-4 p-3 text-xs font-bold">
+      <div class="font-montserrat">Recordatorio</div>
+      <div class="font-montserrat hidden md:block">Categoría</div>
+      <div class="font-montserrat hidden md:block">Fecha y hora</div>
+      <div class="font-montserrat hidden md:block">Estado</div>
+      <div class="font-montserrat hidden md:block">Acciones</div>
+    </div>
+  </div>
+
+  <!-- Table Body -->
+  <div class="divide-y divide-gray-200">
+    @for (reminder of reminders(); track reminder.id) {
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-4 p-4 hover:bg-gray-50 transition-colors">
+        <!-- Recordatorio Column -->
+        <div class="flex flex-col">
+          <span class="text-mono font-montserrat text-sm font-bold">{{ reminder.title }}</span>
+          <span class="text-gray-600 font-montserrat text-xs">{{ reminder.description }}</span>
+        </div>
+
+        <!-- Categoría Column -->
+        <div class="flex flex-col md:justify-center">
+          <span class="text-mono font-montserrat text-sm font-bold md:hidden">Categoría:</span>
+          <span class="text-mono font-montserrat text-sm">{{ reminder.category }}</span>
+        </div>
+
+        <!-- Fecha y hora Column -->
+        <div class="flex flex-col md:justify-center">
+          <span class="text-mono font-montserrat text-sm font-bold md:hidden">Fecha y hora:</span>
+          <span class="text-mono font-montserrat text-sm font-bold">{{ reminder.date }} {{ reminder.time }}</span>
+          <span class="text-gray-600 font-montserrat text-xs">Recurrente: {{ reminder.recurrence }}</span>
+        </div>
+
+        <!-- Estado Column -->
+        <div class="flex flex-col md:justify-center">
+          <span class="text-mono font-montserrat text-sm font-bold md:hidden">Estado:</span>
+          <span class="font-montserrat text-sm font-bold" [class]="getStatusColor(reminder.status)">
+            {{ reminder.status }}
+          </span>
+        </div>
+
+        <!-- Acciones Column -->
+        <div class="flex flex-col md:justify-center gap-1">
+          <span class="text-mono font-montserrat text-sm font-bold md:hidden">Acciones:</span>
+          <div class="flex flex-wrap gap-2">
+            <button 
+              (click)="onEditReminder(reminder)"
+              class="text-xs font-montserrat font-bold text-blue-600 hover:text-blue-800 transition-colors">
+              Editar
+            </button>
+            <button 
+              (click)="onDeleteReminder(reminder)"
+              class="text-xs font-montserrat font-bold text-red-600 hover:text-red-800 transition-colors">
+              Eliminar
+            </button>
+            <button 
+              (click)="onDuplicateReminder(reminder)"
+              class="text-xs font-montserrat font-bold text-green-600 hover:text-green-800 transition-colors">
+              Duplicar
+            </button>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>
+
+<!-- Summary Statistics -->
+<div class="text-center space-y-2">
+  <p class="text-mono font-montserrat text-base">
+    <span class="font-bold">Resumen: </span>
+    <span class="font-bold">{{ stats().completed }}</span> completados - 
+    <span class="font-bold">{{ stats().active }}</span> activos - 
+    <span class="font-bold">{{ stats().missed }}</span> perdidos - 
+    <span class="font-bold">{{ stats().scheduled }}</span> programados
+  </p>
+  <p class="text-gray-600 font-montserrat text-base font-bold italic">
+    Tasa de cumplimiento: <span class="text-gray-600">{{ stats().completionRate }}%</span>
+  </p>
+</div>
