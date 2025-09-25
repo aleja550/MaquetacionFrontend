@@ -7,14 +7,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class SplashActivity extends AppCompatActivity {
 
-    private static final int SPLASH_DURATION = 1500; // 1.5 segundos
+    private static final int SPLASH_DURATION = 1500; 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        // Delay and then start HomeScreenActivity
+        
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

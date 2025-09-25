@@ -9,7 +9,7 @@ public class RecordatoriosManager {
 
     private RecordatoriosManager() {
         recordatorios = new ArrayList<>();
-        // Agregar algunos recordatorios de ejemplo
+        
         inicializarRecordatoriosEjemplo();
     }
 
@@ -26,7 +26,7 @@ public class RecordatoriosManager {
         recordatorios.add(new Recordatorio("Estudiar UX research", "07:00 AM", "Estudio", "Aleatorio", "Diariamente"));
         recordatorios.add(new Recordatorio("Cardio 1 hora", "06:00 AM", "Ejercicio", "Matemática", "Semanalmente"));
         
-        // Establecer estados para el ejemplo
+        
         recordatorios.get(0).setEstado("Activo");
         recordatorios.get(1).setEstado("Próximo");
         recordatorios.get(2).setEstado("Atrasado");
@@ -57,6 +57,20 @@ public class RecordatoriosManager {
         }
     }
 
+    public boolean actualizarRecordatorio(int id, String titulo, String fechaHora, String categoria, String antiPostponer, String repetir) {
+        for (Recordatorio recordatorio : recordatorios) {
+            if (recordatorio.getId() == id) {
+                recordatorio.setTitulo(titulo);
+                recordatorio.setFechaHora(fechaHora);
+                recordatorio.setCategoria(categoria);
+                recordatorio.setAntiPostponer(antiPostponer);
+                recordatorio.setRepetir(repetir);
+                return true;
+            }
+        }
+        return false;
+    }
+
     public int getTotalCount() {
         return recordatorios.size();
     }
@@ -85,7 +99,7 @@ public class RecordatoriosManager {
         return count;
     }
 
-    // Extraer solo la hora de la fecha completa para mostrar
+    
     public String extraerHora(String fechaHora) {
         if (fechaHora.contains(" - ")) {
             String[] parts = fechaHora.split(" - ");
@@ -96,7 +110,7 @@ public class RecordatoriosManager {
         return fechaHora;
     }
 
-    // Métodos de filtrado por estado
+    
     public List<Recordatorio> getRecordatoriosPorEstado(String estado) {
         List<Recordatorio> filtrados = new ArrayList<>();
         for (Recordatorio recordatorio : recordatorios) {
@@ -108,7 +122,7 @@ public class RecordatoriosManager {
     }
 
     public List<Recordatorio> getRecordatoriosHoy() {
-        // Para este ejemplo, asumimos que "Hoy" incluye Activos y Próximos
+        
         List<Recordatorio> hoy = new ArrayList<>();
         for (Recordatorio recordatorio : recordatorios) {
             String estado = recordatorio.getEstado();

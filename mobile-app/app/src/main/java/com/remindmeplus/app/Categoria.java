@@ -13,19 +13,19 @@ public class Categoria {
         this.descripcion = descripcion;
     }
 
-    // Getters
+    
     public String getNombre() { return nombre; }
     public String getEmoji() { return emoji; }
     public String getColor() { return color; }
     public String getDescripcion() { return descripcion; }
 
-    // Setters
+    
     public void setNombre(String nombre) { this.nombre = nombre; }
     public void setEmoji(String emoji) { this.emoji = emoji; }
     public void setColor(String color) { this.color = color; }
     public void setDescripcion(String descripcion) { this.descripcion = descripcion; }
 
-    // Método para obtener el texto completo con emoji (si tiene)
+    
     public String getTextoCompleto() {
         if (emoji != null && !emoji.trim().isEmpty()) {
             return nombre + " " + emoji;

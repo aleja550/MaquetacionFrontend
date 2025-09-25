@@ -15,7 +15,7 @@ public class RecordatorioCreadoExitosamenteActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        // Hide the default ActionBar
+        
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
@@ -39,7 +39,7 @@ public class RecordatorioCreadoExitosamenteActivity extends AppCompatActivity {
     }
 
     private void loadReminderDetails() {
-        // Get data from intent
+        
         Intent intent = getIntent();
         String titulo = intent.getStringExtra("titulo");
         String fecha = intent.getStringExtra("fecha");
@@ -47,7 +47,7 @@ public class RecordatorioCreadoExitosamenteActivity extends AppCompatActivity {
         String antiPostponer = intent.getStringExtra("antiPostponer");
         String repetir = intent.getStringExtra("repetir");
 
-        // Set the values
+        
         if (titulo != null) detailTitulo.setText(titulo);
         if (fecha != null) detailFecha.setText(fecha);
         if (categoria != null) detailCategoria.setText(categoria);
@@ -73,7 +73,7 @@ public class RecordatorioCreadoExitosamenteActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        // Override back button to go to GestionarRecordatorios
+        
         Intent intent = new Intent(this, GestionarRecordatoriosActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);

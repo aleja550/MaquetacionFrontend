@@ -28,21 +28,25 @@ public class NuevoRecordatorioActivity extends AppCompatActivity {
     private Button btnGuardar;
     private ImageView btnBack;
 
-    // Validation flags
+    
     private boolean tituloValid = false;
     private boolean fechaValid = false;
     private String selectedFechaHora = "";
 
-    // Selected values
+    
     private String selectedCategoria = "Salud";
     private String selectedRepetir = "Una vez";
     private String selectedAntiPostponer = "Resolver operación matemática";
+    
+    
+    private boolean modoEdicion = false;
+    private int recordatorioId = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        // Hide the default ActionBar
+        
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
@@ -50,6 +54,7 @@ public class NuevoRecordatorioActivity extends AppCompatActivity {
         setContentView(R.layout.activity_nuevo_recordatorio);
 
         initViews();
+        checkEditMode();
         setupValidation();
         setupClickListeners();
         updateButtonState();
@@ -80,8 +85,62 @@ public class NuevoRecordatorioActivity extends AppCompatActivity {
         btnBack = findViewById(R.id.btn_back);
     }
 
+    private void checkEditMode() {
+        Intent intent = getIntent();
+        modoEdicion = intent.getBooleanExtra("MODO_EDICION", false);
+        
+        if (modoEdicion) {
+            
+            TextView headerTitle = findViewById(R.id.header_title);
+            if (headerTitle != null) {
+                headerTitle.setText("EDITAR RECORDATORIO");
+            }
+            
+            
+            btnGuardar.setText("GUARDAR CAMBIOS");
+            
+            
+            recordatorioId = intent.getIntExtra("RECORDATORIO_ID", -1);
+            String titulo = intent.getStringExtra("RECORDATORIO_TITULO");
+            String fechaHora = intent.getStringExtra("RECORDATORIO_FECHA_HORA");
+            String categoria = intent.getStringExtra("RECORDATORIO_CATEGORIA");
+            String repetir = intent.getStringExtra("RECORDATORIO_REPETIR");
+            String antiPostponer = intent.getStringExtra("RECORDATORIO_ANTI_POSTPONER");
+            
+            
+            if (titulo != null) {
+                editTitulo.setText(titulo);
+                tituloValid = true;
+            }
+            if (fechaHora != null) {
+                textFechaHora.setText(fechaHora);
+                selectedFechaHora = fechaHora;
+                fechaValid = true;
+            }
+            if (categoria != null) {
+                textCategoria.setText(categoria);
+                selectedCategoria = categoria;
+            }
+            if (repetir != null) {
+                textRepetir.setText(repetir);
+                selectedRepetir = repetir;
+            }
+            if (antiPostponer != null) {
+                selectedAntiPostponer = antiPostponer;
+                
+                if (antiPostponer.contains("matemática")) {
+                    rbMatematica.setChecked(true);
+                } else if (antiPostponer.contains("frase")) {
+                    rbFrase.setChecked(true);
+                } else {
+                    rbAleatorio.setChecked(true);
+                }
+            }
+        }
+    }
+
     private void setupValidation() {
-        // Título validation
+        
         editTitulo.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
@@ -103,11 +162,11 @@ public class NuevoRecordatorioActivity extends AppCompatActivity {
         
         btnGuardar.setEnabled(allValid);
         if (allValid) {
-            btnGuardar.setBackgroundColor(0xFF4A90E2); // Blue
-            btnGuardar.setTextColor(0xFFFFFFFF); // White
+            btnGuardar.setBackgroundColor(0xFF4A90E2); 
+            btnGuardar.setTextColor(0xFFFFFFFF); 
         } else {
-            btnGuardar.setBackgroundColor(0xFFCCCCCC); // Gray
-            btnGuardar.setTextColor(0xFF666666); // Dark gray
+            btnGuardar.setBackgroundColor(0xFFCCCCCC); 
+            btnGuardar.setTextColor(0xFF666666); 
         }
     }
 
@@ -118,7 +177,7 @@ public class NuevoRecordatorioActivity extends AppCompatActivity {
         layoutCategoria.setOnClickListener(v -> showCategoriaSelector());
         layoutRepetir.setOnClickListener(v -> showRepetirSelector());
         
-        // Radio buttons functionality
+        
         radioMatematica.setOnClickListener(v -> selectRadioOption(1));
         radioFrase.setOnClickListener(v -> selectRadioOption(2));
         radioAleatorio.setOnClickListener(v -> selectRadioOption(3));
@@ -131,21 +190,21 @@ public class NuevoRecordatorioActivity extends AppCompatActivity {
     }
 
     private void selectRadioOption(int option) {
-        // Reset all radio buttons
+        
         rbMatematica.setChecked(false);
         rbFrase.setChecked(false);
         rbAleatorio.setChecked(false);
         
-        // Reset all backgrounds
-        radioMatematica.setBackgroundColor(0xFFFFFFFF); // White
+        
+        radioMatematica.setBackgroundColor(0xFFFFFFFF); 
         radioFrase.setBackgroundColor(0xFFFFFFFF);
         radioAleatorio.setBackgroundColor(0xFFFFFFFF);
         
-        // Set selected option
+        
         switch (option) {
             case 1:
                 rbMatematica.setChecked(true);
-                radioMatematica.setBackgroundColor(0xFFE3F2FD); // Light blue
+                radioMatematica.setBackgroundColor(0xFFE3F2FD); 
                 selectedAntiPostponer = "Resolver operación matemática";
                 break;
             case 2:
@@ -164,16 +223,16 @@ public class NuevoRecordatorioActivity extends AppCompatActivity {
     private void showDateTimePicker() {
         Calendar calendar = Calendar.getInstance();
         
-        // First show date picker
+        
         DatePickerDialog datePickerDialog = new DatePickerDialog(this,
                 (view, year, month, dayOfMonth) -> {
-                    // Then show time picker
+                    
                     TimePickerDialog timePickerDialog = new TimePickerDialog(this,
                             (timeView, hourOfDay, minute) -> {
                                 selectedFechaHora = String.format("%02d/%02d/%d - %02d:%02d", 
                                     dayOfMonth, month + 1, year, hourOfDay, minute);
                                 textFechaHora.setText(selectedFechaHora);
-                                textFechaHora.setTextColor(0xFF333333); // Change to normal color
+                                textFechaHora.setTextColor(0xFF333333); 
                                 fechaValid = true;
                                 asteriscoFecha.setVisibility(View.GONE);
                                 updateButtonState();
@@ -246,27 +305,50 @@ public class NuevoRecordatorioActivity extends AppCompatActivity {
     private void guardarRecordatorio() {
         String titulo = editTitulo.getText().toString().trim();
         
-        // Create new recordatorio and add to manager
-        Recordatorio nuevoRecordatorio = new Recordatorio(
-            titulo, 
-            selectedFechaHora, 
-            selectedCategoria, 
-            selectedAntiPostponer, 
-            selectedRepetir
-        );
-        
-        // Add to manager
-        RecordatoriosManager.getInstance().agregarRecordatorio(nuevoRecordatorio);
-        
-        // Create intent for success activity
-        Intent intent = new Intent(this, RecordatorioCreadoExitosamenteActivity.class);
-        intent.putExtra("titulo", titulo);
-        intent.putExtra("fecha", selectedFechaHora);
-        intent.putExtra("categoria", selectedCategoria);
-        intent.putExtra("antiPostponer", selectedAntiPostponer);
-        intent.putExtra("repetir", selectedRepetir);
-        
-        startActivity(intent);
-        finish();
+        if (modoEdicion) {
+            
+            RecordatoriosManager manager = RecordatoriosManager.getInstance();
+            boolean actualizado = manager.actualizarRecordatorio(
+                recordatorioId,
+                titulo,
+                selectedFechaHora,
+                selectedCategoria,
+                selectedAntiPostponer,
+                selectedRepetir
+            );
+            
+            if (actualizado) {
+                
+                android.widget.Toast.makeText(this, "Recordatorio editado correctamente", android.widget.Toast.LENGTH_SHORT).show();
+                
+                Intent gestionarIntent = new Intent(this, GestionarRecordatoriosActivity.class);
+                gestionarIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(gestionarIntent);
+                finish();
+            }
+        } else {
+            
+            Recordatorio nuevoRecordatorio = new Recordatorio(
+                titulo, 
+                selectedFechaHora, 
+                selectedCategoria, 
+                selectedAntiPostponer, 
+                selectedRepetir
+            );
+            
+            
+            RecordatoriosManager.getInstance().agregarRecordatorio(nuevoRecordatorio);
+            
+            
+            Intent intent = new Intent(this, RecordatorioCreadoExitosamenteActivity.class);
+            intent.putExtra("titulo", titulo);
+            intent.putExtra("fecha", selectedFechaHora);
+            intent.putExtra("categoria", selectedCategoria);
+            intent.putExtra("antiPostponer", selectedAntiPostponer);
+            intent.putExtra("repetir", selectedRepetir);
+            
+            startActivity(intent);
+            finish();
+        }
     }
 }

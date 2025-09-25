@@ -26,7 +26,7 @@ public class HomeScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        // Hide the default ActionBar to use custom header
+        
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
@@ -40,8 +40,10 @@ public class HomeScreenActivity extends AppCompatActivity {
         EditText searchBar = findViewById(R.id.search_bar);
         TextView verTodos = findViewById(R.id.ver_todos);
         FloatingActionButton fabAdd = findViewById(R.id.fab_add);
+        TextView btnActivarSalud = findViewById(R.id.btn_activar_salud);
+        TextView btnActivarEstudio = findViewById(R.id.btn_activar_estudio);
 
-        // Navigation menu items
+        
         LinearLayout navHome = findViewById(R.id.nav_home);
         LinearLayout navRecordatorios = findViewById(R.id.nav_recordatorios);
         LinearLayout navCategorias = findViewById(R.id.nav_categorias);
@@ -49,11 +51,11 @@ public class HomeScreenActivity extends AppCompatActivity {
         LinearLayout navConfiguracion = findViewById(R.id.nav_configuracion);
         LinearLayout navAyuda = findViewById(R.id.nav_ayuda);
 
-        // Search functionality
+        
         searchBar.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                // No action needed
+                
             }
 
             @Override
@@ -63,7 +65,7 @@ public class HomeScreenActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                // No action needed
+                
             }
         });
 
@@ -77,7 +79,6 @@ public class HomeScreenActivity extends AppCompatActivity {
         notificationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO: Mostrar notificaciones
             }
         });
 
@@ -97,11 +98,34 @@ public class HomeScreenActivity extends AppCompatActivity {
             }
         });
 
-        // Navigation menu listeners
+        btnActivarSalud.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                
+                Intent intent = new Intent(HomeScreenActivity.this, AlarmaFraseActivity.class);
+                intent.putExtra("TITULO_RECORDATORIO", "Tomar Losartán 50mg");
+                intent.putExtra("HORA_RECORDATORIO", "08:00 AM");
+                intent.putExtra("FRASE_OBJETIVO", "Hoy voy a lograr mis metas");
+                startActivity(intent);
+            }
+        });
+
+        btnActivarEstudio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                
+                Intent intent = new Intent(HomeScreenActivity.this, AlarmaDesafioMatematicoActivity.class);
+                intent.putExtra("TITULO_RECORDATORIO", "Estudiar UX Research");
+                intent.putExtra("HORA_RECORDATORIO", "7:00 AM");
+                startActivity(intent);
+            }
+        });
+
+        
         navHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Ya estamos en Home, solo cerramos el drawer
+                
                 drawerLayout.closeDrawer(GravityCompat.START);
             }
         });
@@ -158,7 +182,7 @@ public class HomeScreenActivity extends AppCompatActivity {
     }
 
     private void filterRecordatorios(String query) {
-        // Find all reminder cards in the home screen by searching through the layout hierarchy
+        
         LinearLayout mainContent = findMainContentContainer();
         if (mainContent == null) return;
 
@@ -166,7 +190,7 @@ public class HomeScreenActivity extends AppCompatActivity {
     }
 
     private LinearLayout findMainContentContainer() {
-        // Look for the main ScrollView container in the home screen
+        
         View rootLayout = findViewById(R.id.drawer_layout);
         return findScrollViewContent(rootLayout);
     }
@@ -196,7 +220,7 @@ public class HomeScreenActivity extends AppCompatActivity {
             if (child instanceof LinearLayout) {
                 LinearLayout layout = (LinearLayout) child;
                 
-                // Check if this looks like a reminder card
+                
                 if (isReminderCard(layout)) {
                     TextView titleView = findReminderTitle(layout);
                     if (titleView != null) {
@@ -208,7 +232,7 @@ public class HomeScreenActivity extends AppCompatActivity {
                         }
                     }
                 } else {
-                    // Continue searching recursively
+                    
                     filterRemindersRecursively(layout, query);
                 }
             }
@@ -216,9 +240,9 @@ public class HomeScreenActivity extends AppCompatActivity {
     }
 
     private boolean isReminderCard(LinearLayout layout) {
-        // A reminder card typically has specific characteristics
+        
         try {
-            // Look for elements that suggest this is a reminder card
+            
             return layout.getChildCount() > 1 && hasReminderCharacteristics((ViewGroup) layout);
         } catch (Exception e) {
             return false;
@@ -226,12 +250,12 @@ public class HomeScreenActivity extends AppCompatActivity {
     }
 
     private boolean hasReminderCharacteristics(ViewGroup layout) {
-        // Check if the layout contains TextViews with reminder-like content
+        
         for (int i = 0; i < layout.getChildCount(); i++) {
             View child = layout.getChildAt(i);
             if (child instanceof TextView) {
                 String text = ((TextView) child).getText().toString();
-                // Look for typical reminder titles
+                
                 if (text.contains("Tomar") || text.contains("Hacer") || text.contains("Recordar") || 
                     text.contains("Ejercicio") || text.length() > 10) {
                     return true;
@@ -252,7 +276,7 @@ public class HomeScreenActivity extends AppCompatActivity {
                 TextView textView = (TextView) child;
                 String text = textView.getText().toString();
                 
-                // The title is the substantial text that's not a status or category
+                
                 if (!text.startsWith("●") && !text.startsWith("•") && 
                     !text.contains("💊") && !text.contains("🏥") && 
                     !text.contains("💼") && !text.contains("📚") && 

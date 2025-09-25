@@ -186,6 +186,7 @@
                         android:gravity="center">
 
                         <TextView
+                            android:id="@+id/btn_activar_salud"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Activar"
@@ -196,7 +197,9 @@
                             android:paddingEnd="12dp"
                             android:paddingTop="6dp"
                             android:paddingBottom="6dp"
-                            android:layout_marginBottom="4dp" />
+                            android:layout_marginBottom="4dp"
+                            android:clickable="true"
+                            android:focusable="true" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -339,6 +342,7 @@
                         android:gravity="center">
 
                         <TextView
+                            android:id="@+id/btn_activar_estudio"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Activar"
@@ -349,7 +353,9 @@
                             android:paddingEnd="12dp"
                             android:paddingTop="6dp"
                             android:paddingBottom="6dp"
-                            android:layout_marginBottom="4dp" />
+                            android:layout_marginBottom="4dp"
+                            android:clickable="true"
+                            android:focusable="true" />
 
                         <TextView
                             android:layout_width="wrap_content"

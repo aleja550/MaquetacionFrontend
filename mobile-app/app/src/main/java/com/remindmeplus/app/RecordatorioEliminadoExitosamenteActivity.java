@@ -12,14 +12,12 @@ public class RecordatorioEliminadoExitosamenteActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        // Hide the default ActionBar
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
         
         setContentView(R.layout.activity_recordatorio_eliminado_exitosamente);
 
-        // Get reminder title from intent
         String titulo = getIntent().getStringExtra("titulo");
         
         TextView titleText = findViewById(R.id.deleted_reminder_title);

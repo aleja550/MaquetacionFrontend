@@ -31,7 +31,7 @@ public class GestionarRecordatoriosActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        // Hide the default ActionBar to avoid double header
+        
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
@@ -50,13 +50,13 @@ public class GestionarRecordatoriosActivity extends AppCompatActivity {
         EditText searchBar = findViewById(R.id.search_edittext);
         FloatingActionButton fabAdd = findViewById(R.id.fab_add);
         
-        // Tab filters
+        
         LinearLayout tabTodos = findViewById(R.id.tab_todos);
         LinearLayout tabHoy = findViewById(R.id.tab_hoy);
         LinearLayout tabAtrasados = findViewById(R.id.tab_atrasados);
         LinearLayout tabCompletados = findViewById(R.id.tab_completados);
         
-        // Navigation menu items
+        
         LinearLayout navHome = findViewById(R.id.nav_home);
         LinearLayout navRecordatorios = findViewById(R.id.nav_recordatorios);
         LinearLayout navCategorias = findViewById(R.id.nav_categorias);
@@ -64,7 +64,7 @@ public class GestionarRecordatoriosActivity extends AppCompatActivity {
         LinearLayout navConfiguracion = findViewById(R.id.nav_configuracion);
         LinearLayout navAyuda = findViewById(R.id.nav_ayuda);
 
-        // Search functionality
+        
         searchBar.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -96,7 +96,7 @@ public class GestionarRecordatoriosActivity extends AppCompatActivity {
             }
         });
 
-        // Tab listeners
+        
         tabTodos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -133,7 +133,7 @@ public class GestionarRecordatoriosActivity extends AppCompatActivity {
             }
         });
 
-        // Navigation menu listeners
+        
         navHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -307,7 +307,7 @@ public class GestionarRecordatoriosActivity extends AppCompatActivity {
         
         mainLayout.addView(contentLayout);
         
-        // Actions layout
+        
         LinearLayout actionsLayout = new LinearLayout(this);
         actionsLayout.setLayoutParams(new LinearLayout.LayoutParams(
             ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT
@@ -315,7 +315,7 @@ public class GestionarRecordatoriosActivity extends AppCompatActivity {
         actionsLayout.setOrientation(LinearLayout.VERTICAL);
         actionsLayout.setGravity(android.view.Gravity.CENTER);
         
-        // Icons layout
+        
         LinearLayout iconsLayout = new LinearLayout(this);
         LinearLayout.LayoutParams iconsParams = new LinearLayout.LayoutParams(
             ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT
@@ -324,7 +324,7 @@ public class GestionarRecordatoriosActivity extends AppCompatActivity {
         iconsLayout.setLayoutParams(iconsParams);
         iconsLayout.setOrientation(LinearLayout.HORIZONTAL);
         
-        // Edit icon
+        
         ImageView editIcon = new ImageView(this);
         editIcon.setImageResource(R.drawable.ic_edit);
         editIcon.setColorFilter(Color.parseColor("#666666"));
@@ -334,9 +334,18 @@ public class GestionarRecordatoriosActivity extends AppCompatActivity {
         );
         editParams.rightMargin = (int) (8 * getResources().getDisplayMetrics().density);
         editIcon.setLayoutParams(editParams);
+        
+        
+        editIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editarRecordatorio(recordatorio);
+            }
+        });
+        
         iconsLayout.addView(editIcon);
         
-        // Delete icon
+        
         ImageView deleteIcon = new ImageView(this);
         deleteIcon.setImageResource(R.drawable.ic_delete);
         deleteIcon.setColorFilter(Color.parseColor("#F44336"));
@@ -345,7 +354,7 @@ public class GestionarRecordatoriosActivity extends AppCompatActivity {
             (int) (20 * getResources().getDisplayMetrics().density)
         ));
         
-        // Add click listener to delete icon
+        
         deleteIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -357,7 +366,7 @@ public class GestionarRecordatoriosActivity extends AppCompatActivity {
         
         actionsLayout.addView(iconsLayout);
         
-        // Time
+        
         TextView timeLabel = new TextView(this);
         String hora = RecordatoriosManager.getInstance().extraerHora(recordatorio.getFechaHora());
         timeLabel.setText(hora);
@@ -393,14 +402,14 @@ public class GestionarRecordatoriosActivity extends AppCompatActivity {
     }
 
     private void selectTab(LinearLayout selectedTab, LinearLayout... otherTabs) {
-        // Set selected tab style
+        
         selectedTab.setBackgroundResource(R.drawable.activate_button_background);
         TextView selectedText = (TextView) selectedTab.getChildAt(0);
         selectedText.setTextColor(0xFFFFFFFF);
         
-        // Set unselected tabs style
+        
         for (LinearLayout tab : otherTabs) {
-            tab.setBackgroundColor(0x00000000); // Transparent
+            tab.setBackgroundColor(0x00000000); 
             TextView tabText = (TextView) tab.getChildAt(0);
             tabText.setTextColor(0xFF666666);
         }
@@ -410,7 +419,7 @@ public class GestionarRecordatoriosActivity extends AppCompatActivity {
         RecordatoriosManager manager = RecordatoriosManager.getInstance();
         List<Recordatorio> recordatoriosFiltrados;
 
-        // Aplicar filtro por pestaña primero
+        
         switch (currentFilter) {
             case "Hoy":
                 recordatoriosFiltrados = manager.getRecordatoriosHoy();
@@ -427,7 +436,7 @@ public class GestionarRecordatoriosActivity extends AppCompatActivity {
                 break;
         }
 
-        // Aplicar filtro de búsqueda si existe
+        
         if (!currentSearchQuery.trim().isEmpty()) {
             List<Recordatorio> recordatoriosBuscados = new ArrayList<>();
             String searchLower = currentSearchQuery.toLowerCase().trim();
@@ -459,13 +468,25 @@ public class GestionarRecordatoriosActivity extends AppCompatActivity {
         }
     }
     
+    private void editarRecordatorio(Recordatorio recordatorio) {
+        Intent intent = new Intent(this, NuevoRecordatorioActivity.class);
+        intent.putExtra("MODO_EDICION", true);
+        intent.putExtra("RECORDATORIO_ID", recordatorio.getId());
+        intent.putExtra("RECORDATORIO_TITULO", recordatorio.getTitulo());
+        intent.putExtra("RECORDATORIO_FECHA_HORA", recordatorio.getFechaHora());
+        intent.putExtra("RECORDATORIO_CATEGORIA", recordatorio.getCategoria());
+        intent.putExtra("RECORDATORIO_REPETIR", recordatorio.getRepetir());
+        intent.putExtra("RECORDATORIO_ANTI_POSTPONER", recordatorio.getAntiPostponer());
+        startActivity(intent);
+    }
+
     private void eliminarRecordatorio(Recordatorio recordatorio) {
-        // Remove from manager
+        
         RecordatoriosManager manager = RecordatoriosManager.getInstance();
         boolean removed = manager.eliminarRecordatorio(recordatorio);
         
         if (removed) {
-            // Navigate to success screen
+            
             Intent intent = new Intent(this, RecordatorioEliminadoExitosamenteActivity.class);
             intent.putExtra("titulo", recordatorio.getTitulo());
             startActivity(intent);
