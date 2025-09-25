@@ -121,6 +121,7 @@ id btn_guardar
 id btn_guardar_recordatorio
 id btn_ver_categorias
 id btn_ver_recordatorios
+id btn_volver
 id card_cuenta
 id card_notificaciones
 id card_privacidad
@@ -131,6 +132,7 @@ id delete_ejercicio
 id delete_estudio
 id delete_salud
 id delete_trabajo
+id deleted_reminder_title
 id detail_anti_postponer
 id detail_categoria
 id detail_fecha
@@ -150,6 +152,7 @@ id et_respuesta_usuario
 id fab
 id fab_add
 id fab_add_category
+id header_title
 id iconos_container
 id layout_categoria
 id layout_fecha_hora

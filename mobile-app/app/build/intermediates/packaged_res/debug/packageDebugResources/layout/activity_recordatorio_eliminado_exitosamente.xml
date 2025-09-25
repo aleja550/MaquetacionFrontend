@@ -56,6 +56,7 @@
 
         <!-- Success Message -->
         <TextView
+            android:id="@+id/deleted_reminder_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="¡Recordatorio eliminado\nexitosamente!"
@@ -75,7 +76,7 @@
         android:padding="16dp">
 
         <Button
-            android:id="@+id/btn_ver_recordatorios"
+            android:id="@+id/btn_volver"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:text="VER MIS RECORDATORIOS"

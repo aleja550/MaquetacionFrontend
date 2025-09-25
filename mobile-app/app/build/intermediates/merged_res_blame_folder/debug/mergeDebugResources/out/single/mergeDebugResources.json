@@ -40,12 +40,12 @@
         "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/ic_check.xml"
     },
     {
-        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_success_circle_background.xml.flat",
-        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/success_circle_background.xml"
-    },
-    {
         "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_ic_notification_bell.xml.flat",
         "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/ic_notification_bell.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_success_circle_background.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/success_circle_background.xml"
     },
     {
         "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_category_chip_trabajo.xml.flat",
@@ -188,12 +188,12 @@
         "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/ic_bell_ring_outline.xml"
     },
     {
-        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/mipmap-xxxhdpi_ic_launcher_round.xml.flat",
-        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/mipmap-xxxhdpi/ic_launcher_round.xml"
-    },
-    {
         "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/layout_activity_nuevo_recordatorio.xml.flat",
         "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/layout/activity_nuevo_recordatorio.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/mipmap-xxxhdpi_ic_launcher_round.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/mipmap-xxxhdpi/ic_launcher_round.xml"
     },
     {
         "merged": "com.remindmeplus.app-debug-32:/layout_activity_recordatorio_eliminado_exitosamente.xml.flat",

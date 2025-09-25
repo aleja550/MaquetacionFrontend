@@ -318,12 +318,12 @@ public class NuevoRecordatorioActivity extends AppCompatActivity {
             );
             
             if (actualizado) {
-                // Mostrar toast y volver al home
+                // Mostrar toast y volver a gestionar recordatorios
                 android.widget.Toast.makeText(this, "Recordatorio editado correctamente", android.widget.Toast.LENGTH_SHORT).show();
                 
-                Intent homeIntent = new Intent(this, HomeScreenActivity.class);
-                homeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                startActivity(homeIntent);
+                Intent gestionarIntent = new Intent(this, GestionarRecordatoriosActivity.class);
+                gestionarIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(gestionarIntent);
                 finish();
             }
         } else {
