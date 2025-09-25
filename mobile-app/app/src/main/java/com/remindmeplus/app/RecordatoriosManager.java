@@ -57,6 +57,20 @@ public class RecordatoriosManager {
         }
     }
 
+    public boolean actualizarRecordatorio(int id, String titulo, String fechaHora, String categoria, String antiPostponer, String repetir) {
+        for (Recordatorio recordatorio : recordatorios) {
+            if (recordatorio.getId() == id) {
+                recordatorio.setTitulo(titulo);
+                recordatorio.setFechaHora(fechaHora);
+                recordatorio.setCategoria(categoria);
+                recordatorio.setAntiPostponer(antiPostponer);
+                recordatorio.setRepetir(repetir);
+                return true;
+            }
+        }
+        return false;
+    }
+
     public int getTotalCount() {
         return recordatorios.size();
     }

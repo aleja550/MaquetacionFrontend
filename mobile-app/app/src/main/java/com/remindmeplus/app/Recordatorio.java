@@ -1,6 +1,8 @@
 package com.remindmeplus.app;
 
 public class Recordatorio {
+    private static int nextId = 1;
+    private int id;
     private String titulo;
     private String fechaHora;
     private String categoria;
@@ -9,6 +11,7 @@ public class Recordatorio {
     private String estado; // "Activo", "Próximo", "Atrasado", "Completado"
 
     public Recordatorio(String titulo, String fechaHora, String categoria, String antiPostponer, String repetir) {
+        this.id = nextId++;
         this.titulo = titulo;
         this.fechaHora = fechaHora;
         this.categoria = categoria;
@@ -18,6 +21,7 @@ public class Recordatorio {
     }
 
     // Getters
+    public int getId() { return id; }
     public String getTitulo() { return titulo; }
     public String getFechaHora() { return fechaHora; }
     public String getCategoria() { return categoria; }

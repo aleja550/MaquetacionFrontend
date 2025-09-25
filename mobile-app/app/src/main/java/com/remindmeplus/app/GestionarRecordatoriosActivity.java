@@ -334,6 +334,15 @@ public class GestionarRecordatoriosActivity extends AppCompatActivity {
         );
         editParams.rightMargin = (int) (8 * getResources().getDisplayMetrics().density);
         editIcon.setLayoutParams(editParams);
+        
+        // Add click listener to edit icon
+        editIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editarRecordatorio(recordatorio);
+            }
+        });
+        
         iconsLayout.addView(editIcon);
         
         // Delete icon
@@ -459,6 +468,18 @@ public class GestionarRecordatoriosActivity extends AppCompatActivity {
         }
     }
     
+    private void editarRecordatorio(Recordatorio recordatorio) {
+        Intent intent = new Intent(this, NuevoRecordatorioActivity.class);
+        intent.putExtra("MODO_EDICION", true);
+        intent.putExtra("RECORDATORIO_ID", recordatorio.getId());
+        intent.putExtra("RECORDATORIO_TITULO", recordatorio.getTitulo());
+        intent.putExtra("RECORDATORIO_FECHA_HORA", recordatorio.getFechaHora());
+        intent.putExtra("RECORDATORIO_CATEGORIA", recordatorio.getCategoria());
+        intent.putExtra("RECORDATORIO_REPETIR", recordatorio.getRepetir());
+        intent.putExtra("RECORDATORIO_ANTI_POSTPONER", recordatorio.getAntiPostponer());
+        startActivity(intent);
+    }
+
     private void eliminarRecordatorio(Recordatorio recordatorio) {
         // Remove from manager
         RecordatoriosManager manager = RecordatoriosManager.getInstance();

@@ -37,6 +37,10 @@ public class NuevoRecordatorioActivity extends AppCompatActivity {
     private String selectedCategoria = "Salud";
     private String selectedRepetir = "Una vez";
     private String selectedAntiPostponer = "Resolver operación matemática";
+    
+    // Edit mode
+    private boolean modoEdicion = false;
+    private int recordatorioId = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +54,7 @@ public class NuevoRecordatorioActivity extends AppCompatActivity {
         setContentView(R.layout.activity_nuevo_recordatorio);
 
         initViews();
+        checkEditMode();
         setupValidation();
         setupClickListeners();
         updateButtonState();
@@ -78,6 +83,60 @@ public class NuevoRecordatorioActivity extends AppCompatActivity {
         
         btnGuardar = findViewById(R.id.btn_guardar);
         btnBack = findViewById(R.id.btn_back);
+    }
+
+    private void checkEditMode() {
+        Intent intent = getIntent();
+        modoEdicion = intent.getBooleanExtra("MODO_EDICION", false);
+        
+        if (modoEdicion) {
+            // Cambiar título del header
+            TextView headerTitle = findViewById(R.id.header_title);
+            if (headerTitle != null) {
+                headerTitle.setText("EDITAR RECORDATORIO");
+            }
+            
+            // Cambiar texto del botón
+            btnGuardar.setText("GUARDAR CAMBIOS");
+            
+            // Cargar datos del recordatorio
+            recordatorioId = intent.getIntExtra("RECORDATORIO_ID", -1);
+            String titulo = intent.getStringExtra("RECORDATORIO_TITULO");
+            String fechaHora = intent.getStringExtra("RECORDATORIO_FECHA_HORA");
+            String categoria = intent.getStringExtra("RECORDATORIO_CATEGORIA");
+            String repetir = intent.getStringExtra("RECORDATORIO_REPETIR");
+            String antiPostponer = intent.getStringExtra("RECORDATORIO_ANTI_POSTPONER");
+            
+            // Poblar campos
+            if (titulo != null) {
+                editTitulo.setText(titulo);
+                tituloValid = true;
+            }
+            if (fechaHora != null) {
+                textFechaHora.setText(fechaHora);
+                selectedFechaHora = fechaHora;
+                fechaValid = true;
+            }
+            if (categoria != null) {
+                textCategoria.setText(categoria);
+                selectedCategoria = categoria;
+            }
+            if (repetir != null) {
+                textRepetir.setText(repetir);
+                selectedRepetir = repetir;
+            }
+            if (antiPostponer != null) {
+                selectedAntiPostponer = antiPostponer;
+                // Seleccionar el radio button correspondiente
+                if (antiPostponer.contains("matemática")) {
+                    rbMatematica.setChecked(true);
+                } else if (antiPostponer.contains("frase")) {
+                    rbFrase.setChecked(true);
+                } else {
+                    rbAleatorio.setChecked(true);
+                }
+            }
+        }
     }
 
     private void setupValidation() {
@@ -246,27 +305,50 @@ public class NuevoRecordatorioActivity extends AppCompatActivity {
     private void guardarRecordatorio() {
         String titulo = editTitulo.getText().toString().trim();
         
-        // Create new recordatorio and add to manager
-        Recordatorio nuevoRecordatorio = new Recordatorio(
-            titulo, 
-            selectedFechaHora, 
-            selectedCategoria, 
-            selectedAntiPostponer, 
-            selectedRepetir
-        );
-        
-        // Add to manager
-        RecordatoriosManager.getInstance().agregarRecordatorio(nuevoRecordatorio);
-        
-        // Create intent for success activity
-        Intent intent = new Intent(this, RecordatorioCreadoExitosamenteActivity.class);
-        intent.putExtra("titulo", titulo);
-        intent.putExtra("fecha", selectedFechaHora);
-        intent.putExtra("categoria", selectedCategoria);
-        intent.putExtra("antiPostponer", selectedAntiPostponer);
-        intent.putExtra("repetir", selectedRepetir);
-        
-        startActivity(intent);
-        finish();
+        if (modoEdicion) {
+            // Modo edición: actualizar recordatorio existente
+            RecordatoriosManager manager = RecordatoriosManager.getInstance();
+            boolean actualizado = manager.actualizarRecordatorio(
+                recordatorioId,
+                titulo,
+                selectedFechaHora,
+                selectedCategoria,
+                selectedAntiPostponer,
+                selectedRepetir
+            );
+            
+            if (actualizado) {
+                // Mostrar toast y volver al home
+                android.widget.Toast.makeText(this, "Recordatorio editado correctamente", android.widget.Toast.LENGTH_SHORT).show();
+                
+                Intent homeIntent = new Intent(this, HomeScreenActivity.class);
+                homeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(homeIntent);
+                finish();
+            }
+        } else {
+            // Modo crear: nuevo recordatorio
+            Recordatorio nuevoRecordatorio = new Recordatorio(
+                titulo, 
+                selectedFechaHora, 
+                selectedCategoria, 
+                selectedAntiPostponer, 
+                selectedRepetir
+            );
+            
+            // Add to manager
+            RecordatoriosManager.getInstance().agregarRecordatorio(nuevoRecordatorio);
+            
+            // Create intent for success activity
+            Intent intent = new Intent(this, RecordatorioCreadoExitosamenteActivity.class);
+            intent.putExtra("titulo", titulo);
+            intent.putExtra("fecha", selectedFechaHora);
+            intent.putExtra("categoria", selectedCategoria);
+            intent.putExtra("antiPostponer", selectedAntiPostponer);
+            intent.putExtra("repetir", selectedRepetir);
+            
+            startActivity(intent);
+            finish();
+        }
     }
 }
