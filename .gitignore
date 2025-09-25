@@ -3,6 +3,7 @@ mobile-app/app/build/
 mobile-app/build/
 mobile-app/.gradle/
 mobile-app/local.properties
+mobile-app/*.gradle.kts
 
 # Archivos de Android Studio
 mobile-app/.idea/
