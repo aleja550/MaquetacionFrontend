@@ -234,21 +234,29 @@ public class GestionarRecordatoriosActivity extends AppCompatActivity {
         mainParams.bottomMargin = (int) (8 * getResources().getDisplayMetrics().density);
         mainLayout.setLayoutParams(mainParams);
         mainLayout.setOrientation(LinearLayout.HORIZONTAL);
-        mainLayout.setBackgroundColor(Color.WHITE);
         mainLayout.setGravity(android.view.Gravity.TOP);
         int padding = (int) (16 * getResources().getDisplayMetrics().density);
         mainLayout.setPadding(padding, padding, padding, padding);
         
-        // Create colored line
-        View colorLine = new View(this);
-        LinearLayout.LayoutParams lineParams = new LinearLayout.LayoutParams(
-            (int) (3 * getResources().getDisplayMetrics().density), 
-            (int) (60 * getResources().getDisplayMetrics().density)
-        );
-        lineParams.rightMargin = (int) (12 * getResources().getDisplayMetrics().density);
-        colorLine.setLayoutParams(lineParams);
-        colorLine.setBackgroundColor(Color.parseColor(recordatorio.getCategoriaColor()));
-        mainLayout.addView(colorLine);
+        // Set background with border based on category
+        String categoria = recordatorio.getCategoria().toLowerCase();
+        switch (categoria) {
+            case "salud":
+                mainLayout.setBackgroundResource(R.drawable.card_border_salud);
+                break;
+            case "trabajo":
+                mainLayout.setBackgroundResource(R.drawable.card_border_trabajo);
+                break;
+            case "estudio":
+                mainLayout.setBackgroundResource(R.drawable.card_border_estudio);
+                break;
+            case "ejercicio":
+                mainLayout.setBackgroundResource(R.drawable.card_border_ejercicio);
+                break;
+            default:
+                mainLayout.setBackgroundResource(R.drawable.card_border_salud);
+                break;
+        }
         
         // Create content layout
         LinearLayout contentLayout = new LinearLayout(this);
@@ -270,7 +278,6 @@ public class GestionarRecordatoriosActivity extends AppCompatActivity {
         categoryLabel.setTextColor(Color.WHITE);
         
         // Set rounded background based on category
-        String categoria = recordatorio.getCategoria().toLowerCase();
         switch (categoria) {
             case "salud":
                 categoryLabel.setBackgroundResource(R.drawable.category_chip_salud);
