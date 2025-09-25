@@ -1,0 +1,48 @@
+<!-- Header -->
+<header class="fixed top-0 left-0 w-full h-[100px] bg-mono z-50">
+  <div class="flex items-center justify-between h-full px-8">
+    <h1 class="text-blanco font-montserrat text-2xl font-bold">RemindMe+</h1>
+    <!-- Mobile menu button -->
+    <button (click)="toggleMobileMenu()" class="lg:hidden text-blanco">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<!-- Main Layout -->
+<div class="flex min-h-screen pt-[100px]">
+  <!-- Sidebar -->
+  <aside class="fixed left-0 top-[100px] w-72 h-[calc(100vh-100px)] bg-azul-menu border-r border-black hidden lg:block">
+    <nav class="flex flex-col">
+      <!-- Dashboard -->
+      <div (click)="onMenuItemClick('dashboard')" 
+           [class]="isActiveRoute('dashboard') ? 'flex items-center justify-center h-[70px] bg-azul-menu-selector cursor-pointer' : 'flex items-center justify-center h-[70px] bg-azul-menu hover:bg-azul-menu-selector transition-colors cursor-pointer'">
+        <span class="text-blanco font-montserrat text-2xl font-bold text-center">Dashboard</span>
+      </div>
+      <!-- Mis Recordatorios -->
+      <div (click)="onMenuItemClick('recordatorios')" 
+           [class]="isActiveRoute('recordatorios') ? 'flex items-center justify-center h-[70px] bg-azul-menu-selector cursor-pointer' : 'flex items-center justify-center h-[70px] bg-azul-menu hover:bg-azul-menu-selector transition-colors cursor-pointer'">
+        <span class="text-blanco font-montserrat text-2xl font-bold text-center">Mis Recordatorios</span>
+      </div>
+      <!-- Categorías -->
+      <div (click)="onMenuItemClick('categorias')" 
+           [class]="isActiveRoute('categorias') ? 'flex items-center justify-center h-[70px] bg-azul-menu-selector cursor-pointer' : 'flex items-center justify-center h-[70px] bg-azul-menu hover:bg-azul-menu-selector transition-colors cursor-pointer'">
+        <span class="text-blanco font-montserrat text-2xl font-bold text-center">Categorías</span>
+      </div>
+      <!-- Configuración -->
+      <div (click)="onMenuItemClick('configuracion')" 
+           [class]="isActiveRoute('configuracion') ? 'flex items-center justify-center h-[70px] bg-azul-menu-selector cursor-pointer' : 'flex items-center justify-center h-[70px] bg-azul-menu hover:bg-azul-menu-selector transition-colors cursor-pointer'">
+        <span class="text-blanco font-montserrat text-2xl font-bold text-center">Configuración</span>
+      </div>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="flex-1 lg:ml-72 bg-bg-gray min-h-[calc(100vh-100px)]">
+    <div class="p-8 lg:p-12">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+</div>

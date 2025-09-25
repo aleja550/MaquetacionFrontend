@@ -33,9 +33,13 @@ MaquetacionFrontend/
   - Estadísticas de uso
   - Configuración avanzada
 
-### 🌐 **Aplicación Web** *(Próximamente)*
-- **Tecnología:** Angular (Planeado)
-- **Estado:** 🔄 Por desarrollar
+### 🌐 **Aplicación Web: RemindMe+**
+- **Tecnología:** Angular + Tailwind CSS
+- **Estado:** ✅ Configurado y listo
+- **Funcionalidades:**
+  - Interfaz web responsiva
+  - Gestión de recordatorios
+  - Diseño moderno con Tailwind
 
 ## 🚀 **Cómo Ejecutar**
 
@@ -43,9 +47,15 @@ MaquetacionFrontend/
 ```bash
 cd mobile-app
 ./gradlew assembleDebug
-# O usar Android Studio
 ```
-Ver detalles completos en: `mobile-app/README.md`
+
+### **Aplicación Web (Angular)**
+```bash
+cd web
+npm install
+ng serve
+```
+Ver detalles completos en: `web/README.md`
 
 ## 📚 **Documentación**
 - **Mobile App:** Ver `mobile-app/README.md`
@@ -55,7 +65,7 @@ Ver detalles completos en: `mobile-app/README.md`
 
 ## ✅ **Estado del Proyecto**
 - ✅ **Aplicación Móvil:** Completa (9 pantallas)
-- 🔄 **Aplicación Web:** Pendiente
+- ✅ **Aplicación Web:** Configurada y lista
 - ✅ **Documentación:** Actualizada
 - ✅ **Repositorio:** Organizado
 

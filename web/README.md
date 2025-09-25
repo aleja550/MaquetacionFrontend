@@ -1,25 +1,31 @@
-# 🌐 Aplicación Web - RemindMe+
+# 🌐 RemindMe+ Web Application
 
-## 📋 **Estado Actual**
-🔄 **En desarrollo** - Esta carpeta está preparada para recibir el proyecto web de Angular.
+Aplicación web desarrollada con Angular y Tailwind CSS como parte del proyecto UX mejoramiento de la experiencia de usuario.
 
-## 🎯 **Planeado**
-- **Framework:** Angular
-- **Funcionalidades:** Versión web de RemindMe+ 
-- **Características:** Interfaz responsive, gestión de recordatorios, sincronización con móvil
+## 🚀 Instalación y Ejecución
 
-## 📁 **Estructura Futura**
-```
-web/
-├── src/
-│   ├── app/
-│   ├── assets/
-│   └── environments/
-├── angular.json
-├── package.json
-├── tsconfig.json
-└── README.md
+### Prerrequisitos
+- Node.js (versión 18 o superior)
+- npm o yarn
+
+### Instalación
+```bash
+npm install
 ```
 
----
-**Próximamente:** Implementación de la aplicación web complementaria
+### Servidor de desarrollo
+```bash
+ng serve
+```
+Navega a `http://localhost:4200/`
+
+### Construcción
+```bash
+ng build
+```
+Los archivos se generarán en el directorio `dist/`
+
+## 🛠️ Tecnologías
+- **Angular** 20.1.2
+- **Tailwind CSS**
+- **TypeScript**
