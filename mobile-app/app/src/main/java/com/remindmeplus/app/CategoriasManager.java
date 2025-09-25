@@ -11,7 +11,7 @@ public class CategoriasManager {
     private CategoriasManager() {
         categorias = new ArrayList<>();
         categoriasFiltradas = new ArrayList<>();
-        // Agregar las categorías predeterminadas
+        
         inicializarCategoriasDefault();
     }
 
@@ -23,13 +23,13 @@ public class CategoriasManager {
     }
 
     private void inicializarCategoriasDefault() {
-        // Solo Salud tiene ícono según el mockup
+        
         categorias.add(new Categoria("Salud", "💊", "#4CAF50", "Relajante • Suave"));
         categorias.add(new Categoria("Ejercicio", "", "#607D8B", "Energética • Motivadora"));
         categorias.add(new Categoria("Trabajo", "", "#FF9800", "Profesional • Productiva"));
         categorias.add(new Categoria("Estudio", "", "#9C27B0", "Concentración • Mental"));
         
-        // Inicialmente, todas las categorías están en la lista filtrada
+        
         categoriasFiltradas.addAll(categorias);
     }
 
@@ -50,12 +50,12 @@ public class CategoriasManager {
         categoriasFiltradas.clear();
         
         if (query == null || query.trim().isEmpty()) {
-            // Si no hay query, mostrar todas las categorías
+            
             categoriasFiltradas.addAll(categorias);
         } else {
             String queryLower = query.toLowerCase().trim();
             for (Categoria categoria : categorias) {
-                // Buscar en el nombre de la categoría
+                
                 if (categoria.getNombre().toLowerCase().contains(queryLower)) {
                     categoriasFiltradas.add(categoria);
                 }
@@ -77,6 +77,29 @@ public class CategoriasManager {
             categoriasFiltradas.remove(categoria);
         }
         return removed;
+    }
+
+    public boolean actualizarCategoria(Categoria categoriaOriginal, String nuevoNombre, String nuevoEmoji, String nuevoColor, String nuevaDescripcion) {
+        
+        int index = categorias.indexOf(categoriaOriginal);
+        if (index != -1) {
+            
+            categoriaOriginal.setNombre(nuevoNombre);
+            categoriaOriginal.setEmoji(nuevoEmoji);
+            categoriaOriginal.setColor(nuevoColor);
+            categoriaOriginal.setDescripcion(nuevaDescripcion);
+            
+            
+            if (categoriasFiltradas.contains(categoriaOriginal)) {
+                int filteredIndex = categoriasFiltradas.indexOf(categoriaOriginal);
+                if (filteredIndex != -1) {
+                    categoriasFiltradas.set(filteredIndex, categoriaOriginal);
+                }
+            }
+            
+            return true;
+        }
+        return false;
     }
 
     public int getTotalCategorias() {

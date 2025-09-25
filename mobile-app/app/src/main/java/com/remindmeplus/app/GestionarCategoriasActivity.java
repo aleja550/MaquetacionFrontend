@@ -27,7 +27,6 @@ public class GestionarCategoriasActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        // Hide the default ActionBar to avoid double header
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
@@ -42,7 +41,6 @@ public class GestionarCategoriasActivity extends AppCompatActivity {
         EditText searchBar = findViewById(R.id.search_bar);
         FloatingActionButton fabAddCategory = findViewById(R.id.fab_add_category);
         
-        // Navigation menu items
         LinearLayout navHome = findViewById(R.id.nav_home);
         LinearLayout navRecordatorios = findViewById(R.id.nav_recordatorios);
         LinearLayout navCategorias = findViewById(R.id.nav_categorias);
@@ -50,7 +48,6 @@ public class GestionarCategoriasActivity extends AppCompatActivity {
         LinearLayout navConfiguracion = findViewById(R.id.nav_configuracion);
         LinearLayout navAyuda = findViewById(R.id.nav_ayuda);
         
-        // Edit buttons
         ImageView editSalud = findViewById(R.id.edit_salud);
         ImageView deleteSalud = findViewById(R.id.delete_salud);
         ImageView editEjercicio = findViewById(R.id.edit_ejercicio);
@@ -60,24 +57,19 @@ public class GestionarCategoriasActivity extends AppCompatActivity {
         ImageView editEstudio = findViewById(R.id.edit_estudio);
         ImageView deleteEstudio = findViewById(R.id.delete_estudio);
 
-        // Search functionality
         searchBar.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                // No action needed
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                // Usar el manager para filtrar
                 categoriasManager.filtrarCategorias(s.toString());
-                // Actualizar la vista
                 updateCategoriasView();
             }
 
             @Override
             public void afterTextChanged(Editable s) {
-                // No action needed
             }
         });
 
@@ -91,12 +83,12 @@ public class GestionarCategoriasActivity extends AppCompatActivity {
         fabAddCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Intent intent = new Intent(GestionarCategoriasActivity.this, NuevaCategoriaActivity.class);
-                // startActivity(intent);
+                Intent intent = new Intent(GestionarCategoriasActivity.this, NuevaCategoriaActivity.class);
+                startActivity(intent);
             }
         });
 
-        // Navigation menu listeners
+        
         navHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -116,7 +108,7 @@ public class GestionarCategoriasActivity extends AppCompatActivity {
         navCategorias.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Ya estamos en Categorías, solo cerramos el drawer
+                
                 drawerLayout.closeDrawer(GravityCompat.START);
             }
         });
@@ -132,7 +124,7 @@ public class GestionarCategoriasActivity extends AppCompatActivity {
         navConfiguracion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // startActivity(new Intent(GestionarCategoriasActivity.this, ConfiguracionActivity.class));
+                
                 drawerLayout.closeDrawer(GravityCompat.START);
             }
         });
@@ -140,45 +132,43 @@ public class GestionarCategoriasActivity extends AppCompatActivity {
         navAyuda.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // startActivity(new Intent(GestionarCategoriasActivity.this, AyudaActivity.class));
+                
                 drawerLayout.closeDrawer(GravityCompat.START);
             }
         });
 
-        // Edit listeners
         editSalud.setOnClickListener(v -> {
-            // TODO: Editar categoría Salud
         });
         
         deleteSalud.setOnClickListener(v -> {
-            // TODO: Eliminar categoría Salud
         });
 
         editEjercicio.setOnClickListener(v -> {
-            // TODO: Editar categoría Ejercicio
         });
         
         deleteEjercicio.setOnClickListener(v -> {
-            // TODO: Eliminar categoría Ejercicio
         });
 
         editTrabajo.setOnClickListener(v -> {
-            // TODO: Editar categoría Trabajo
         });
         
         deleteTrabajo.setOnClickListener(v -> {
-            // TODO: Eliminar categoría Trabajo
         });
 
         editEstudio.setOnClickListener(v -> {
-            // TODO: Editar categoría Estudio
         });
         
         deleteEstudio.setOnClickListener(v -> {
-            // TODO: Eliminar categoría Estudio
         });
 
-        // Inicializar la vista con todas las categorías
+        
+        updateCategoriasView();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        
         updateCategoriasView();
     }
 
@@ -200,28 +190,104 @@ public class GestionarCategoriasActivity extends AppCompatActivity {
     private void updateCategoriasView() {
         if (categoriasContainer == null) return;
 
-        // Obtener las categorías filtradas del manager
+        
         List<Categoria> categoriasFiltradas = categoriasManager.getCategoriasFiltradas();
         
-        // Ocultar todas las tarjetas primero
-        hideAllCategoryCards();
         
-        // Mostrar solo las tarjetas de categorías que coinciden con el filtro
+        clearCategoryCards();
+        
+        
         for (Categoria categoria : categoriasFiltradas) {
-            showCategoryCard(categoria.getNombre());
+            createCategoryCard(categoria);
         }
     }
 
-    private void hideAllCategoryCards() {
-        for (int i = 0; i < categoriasContainer.getChildCount(); i++) {
-            View child = categoriasContainer.getChildAt(i);
-            if (child instanceof LinearLayout) {
-                // Omitir el header "MIS CATEGORÍAS"
-                if (child != categoriasContainer.getChildAt(0)) {
-                    child.setVisibility(View.GONE);
-                }
+    private void clearCategoryCards() {
+        
+        int childCount = categoriasContainer.getChildCount();
+        for (int i = childCount - 1; i > 0; i--) {
+            categoriasContainer.removeViewAt(i);
+        }
+    }
+
+    private void createCategoryCard(Categoria categoria) {
+        LinearLayout categoryCard = (LinearLayout) getLayoutInflater().inflate(R.layout.item_categoria_card, null);
+        configurarCategoryCard(categoryCard, categoria);
+        categoriasContainer.addView(categoryCard);
+    }
+
+    private void configurarCategoryCard(LinearLayout categoryCard, Categoria categoria) {
+        View colorIndicator = categoryCard.findViewById(R.id.color_indicator);
+        TextView tvCategoryName = categoryCard.findViewById(R.id.tv_category_name);
+        TextView tvCategoryDescription = categoryCard.findViewById(R.id.tv_category_description);
+        TextView tvRemindersCount = categoryCard.findViewById(R.id.tv_reminders_count);
+        ImageView btnEdit = categoryCard.findViewById(R.id.btn_edit_category);
+        ImageView btnDelete = categoryCard.findViewById(R.id.btn_delete_category);
+
+        
+        if (categoria.getColor() != null) {
+            try {
+                int colorInt = android.graphics.Color.parseColor(categoria.getColor());
+                colorIndicator.setBackgroundColor(colorInt);
+            } catch (IllegalArgumentException e) {
+                colorIndicator.setBackgroundColor(android.graphics.Color.parseColor("#10B981"));
             }
         }
+
+        
+        String categoryText = categoria.getTextoCompleto();
+        tvCategoryName.setText(categoryText);
+        
+        
+        if (categoria.getColor() != null) {
+            try {
+                int colorInt = android.graphics.Color.parseColor(categoria.getColor());
+                android.graphics.drawable.GradientDrawable drawable = new android.graphics.drawable.GradientDrawable();
+                drawable.setShape(android.graphics.drawable.GradientDrawable.RECTANGLE);
+                drawable.setColor(colorInt);
+                drawable.setCornerRadius(12f * getResources().getDisplayMetrics().density);
+                tvCategoryName.setBackground(drawable);
+            } catch (IllegalArgumentException e) {
+                tvCategoryName.setBackgroundResource(R.drawable.category_chip_dynamic);
+            }
+        }
+
+        
+        String descripcion = "Relajante";
+        if (categoria.getDescripcion() != null) {
+            if (categoria.getDescripcion().contains("Suave")) {
+                descripcion += " • Suave";
+            } else if (categoria.getDescripcion().contains("Normal")) {
+                descripcion += " • Normal";
+            } else if (categoria.getDescripcion().contains("Energética")) {
+                descripcion = "Energética • Fuerte";
+            }
+        }
+        tvCategoryDescription.setText(descripcion);
+
+        
+        tvRemindersCount.setText("0 recordatorios activos");
+
+        
+        btnEdit.setOnClickListener(v -> {
+            
+            Intent intent = new Intent(GestionarCategoriasActivity.this, NuevaCategoriaActivity.class);
+            intent.putExtra("MODO_EDICION", true);
+            intent.putExtra("CATEGORIA_NOMBRE", categoria.getNombre());
+            intent.putExtra("CATEGORIA_ICONO", categoria.getEmoji());
+            intent.putExtra("CATEGORIA_COLOR", categoria.getColor());
+            intent.putExtra("CATEGORIA_DESCRIPCION", categoria.getDescripcion());
+            startActivity(intent);
+        });
+
+        btnDelete.setOnClickListener(v -> {
+            
+            CategoriasManager.getInstance().eliminarCategoria(categoria);
+            
+            
+            Intent intent = new Intent(GestionarCategoriasActivity.this, CategoriaEliminadaExitosamenteActivity.class);
+            startActivity(intent);
+        });
     }
 
     private void showCategoryCard(String categoriaNombre) {
@@ -230,16 +296,16 @@ public class GestionarCategoriasActivity extends AppCompatActivity {
             if (child instanceof LinearLayout) {
                 LinearLayout categoryCard = (LinearLayout) child;
                 
-                // Buscar el TextView con el nombre de la categoría
+                
                 TextView categoryNameView = findCategoryTitleInCard(categoryCard);
                 if (categoryNameView != null) {
                     String cardCategoryName = categoryNameView.getText().toString();
                     
-                    // Extraer solo el nombre de la categoría (sin emoji para comparar)
+                    
                     String cleanCardName = extractCleanCategoryName(cardCategoryName);
                     String cleanSearchName = extractCleanCategoryName(categoriaNombre);
                     
-                    // Si coincide el nombre de la categoría, mostrar la tarjeta
+                    
                     if (cleanCardName.toLowerCase().equals(cleanSearchName.toLowerCase())) {
                         categoryCard.setVisibility(View.VISIBLE);
                     }
@@ -249,7 +315,7 @@ public class GestionarCategoriasActivity extends AppCompatActivity {
     }
 
     private String extractCleanCategoryName(String categoryText) {
-        // Remover emojis y espacios extra para obtener solo el nombre
+        
         return categoryText
             .replace("💊", "")
             .replace("🏃", "")
@@ -259,7 +325,7 @@ public class GestionarCategoriasActivity extends AppCompatActivity {
     }
 
     private TextView findCategoryTitleInCard(LinearLayout card) {
-        // Recursively find the category title TextView in the card (same logic as recordatorios)
+        
         return findCategoryTitleTextView(card);
     }
     
@@ -268,8 +334,8 @@ public class GestionarCategoriasActivity extends AppCompatActivity {
             TextView textView = (TextView) parent;
             String text = textView.getText().toString();
             
-            // The category title is the TextView that contains the category name
-            // "Salud 💊" (con ícono) o "Ejercicio", "Trabajo", "Estudio" (sin íconos)
+            
+            
             if ((text.contains("Salud") && text.contains("💊")) ||
                 text.equals("Ejercicio") ||
                 text.equals("Trabajo") ||
