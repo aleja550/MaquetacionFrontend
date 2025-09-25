@@ -83,7 +83,6 @@ drawable search_background
 drawable tab_selector
 id asterisco_fecha
 id asterisco_titulo
-id back_button
 id btn_back
 id btn_crear_otro
 id btn_guardar
@@ -127,8 +126,6 @@ id nav_home
 id nav_item_icon
 id nav_item_title
 id nav_recordatorios
-id nav_view
-id navigation_view
 id notification_button
 id radio_aleatorio
 id radio_frase
@@ -139,6 +136,10 @@ id rb_matematica
 id reminders_container
 id search_bar
 id search_edittext
+id stat_activos
+id stat_completados
+id stat_proximos
+id stat_total
 id switch_desafio
 id tab_atrasados
 id tab_completados

@@ -88,7 +88,7 @@
                 android:id="@+id/tab_todos"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="1.2"
                 android:orientation="horizontal"
                 android:gravity="center"
                 android:background="@drawable/activate_button_background"
@@ -110,7 +110,7 @@
                 android:id="@+id/tab_hoy"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="0.8"
                 android:orientation="horizontal"
                 android:gravity="center"
                 android:padding="8dp"
@@ -131,7 +131,7 @@
                 android:id="@+id/tab_atrasados"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="1.4"
                 android:orientation="horizontal"
                 android:gravity="center"
                 android:padding="8dp"
@@ -152,7 +152,7 @@
                 android:id="@+id/tab_completados"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="1.6"
                 android:orientation="horizontal"
                 android:gravity="center"
                 android:padding="8dp"
@@ -189,9 +189,10 @@
                 android:gravity="center">
 
                 <TextView
+                    android:id="@+id/stat_total"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="7"
+                    android:text="4"
                     android:textColor="#4285F4"
                     android:textSize="24sp"
                     android:fontFamily="sans-serif-bold" />
@@ -213,9 +214,10 @@
                 android:gravity="center">
 
                 <TextView
+                    android:id="@+id/stat_activos"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="2"
+                    android:text="1"
                     android:textColor="#10B981"
                     android:textSize="24sp"
                     android:fontFamily="sans-serif-bold" />
@@ -237,9 +239,10 @@
                 android:gravity="center">
 
                 <TextView
+                    android:id="@+id/stat_proximos"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="5"
+                    android:text="1"
                     android:textColor="#F97316"
                     android:textSize="24sp"
                     android:fontFamily="sans-serif-bold" />
@@ -261,9 +264,10 @@
                 android:gravity="center">
 
                 <TextView
+                    android:id="@+id/stat_completados"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="0"
+                    android:text="1"
                     android:textColor="#6B7280"
                     android:textSize="24sp"
                     android:fontFamily="sans-serif-bold" />
@@ -774,161 +778,247 @@
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 <!-- Navigation Drawer -->
-<com.google.android.material.navigation.NavigationView
-    android:id="@+id/navigation_view"
-    android:layout_width="wrap_content"
+<LinearLayout
+    android:layout_width="280dp"
     android:layout_height="match_parent"
     android:layout_gravity="start"
-    android:background="@android:color/white"
-    android:fitsSystemWindows="true">
+    android:orientation="vertical"
+    android:background="@android:color/white">
 
+    <!-- Header -->
+    <include layout="@layout/nav_header" />
+
+    <!-- Menu Items -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="8dp">
 
-        <!-- Header -->
+        <!-- Home -->
         <LinearLayout
+            android:id="@+id/nav_home"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:background="#4285F4"
-            android:orientation="vertical"
-            android:padding="16dp"
-            android:gravity="bottom">
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
 
             <ImageView
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:src="@drawable/ic_person"
-                android:background="@drawable/circle_background"
-                android:padding="12dp"
-                android:layout_marginBottom="8dp"
-                android:tint="@android:color/white" />
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_nav_home"
+                android:tint="#666666"
+                android:layout_marginEnd="32dp" />
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Usuario"
-                android:textColor="@android:color/white"
-                android:textSize="16sp"
-                android:fontFamily="sans-serif-medium" />
+                android:layout_weight="1"
+                android:text="Home"
+                android:textColor="#333333"
+                android:textSize="14sp"
+                android:fontFamily="sans-serif" />
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_arrow_right"
+                android:tint="#999999" />
 
         </LinearLayout>
 
-        <!-- Menu Items -->
-        <ScrollView
+        <!-- Mis Recordatorios -->
+        <LinearLayout
+            android:id="@+id/nav_recordatorios"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_nav_recordatorios"
+                android:tint="#666666"
+                android:layout_marginEnd="32dp" />
+
+            <TextView
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="8dp">
+                android:layout_weight="1"
+                android:text="Mis Recordatorios"
+                android:textColor="#333333"
+                android:textSize="14sp"
+                android:fontFamily="sans-serif" />
 
-                <TextView
-                    android:id="@+id/nav_home"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:text="Inicio"
-                    android:textSize="16sp"
-                    android:gravity="center_vertical"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="16dp"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:background="?android:attr/selectableItemBackground"
-                    android:drawableStart="@drawable/ic_home"
-                    android:drawablePadding="16dp"
-                    android:drawableTint="#666666" />
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_arrow_right"
+                android:tint="#999999" />
 
-                <TextView
-                    android:id="@+id/nav_recordatorios"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:text="Mis Recordatorios"
-                    android:textSize="16sp"
-                    android:gravity="center_vertical"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="16dp"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:background="?android:attr/selectableItemBackground"
-                    android:drawableStart="@drawable/ic_reminder"
-                    android:drawablePadding="16dp"
-                    android:drawableTint="#666666" />
+        </LinearLayout>
 
-                <TextView
-                    android:id="@+id/nav_categorias"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:text="Gestionar Categorías"
-                    android:textSize="16sp"
-                    android:gravity="center_vertical"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="16dp"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:background="?android:attr/selectableItemBackground"
-                    android:drawableStart="@drawable/ic_category"
-                    android:drawablePadding="16dp"
-                    android:drawableTint="#666666" />
+        <!-- Categorías -->
+        <LinearLayout
+            android:id="@+id/nav_categorias"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
 
-                <TextView
-                    android:id="@+id/nav_estadisticas"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:text="Estadísticas"
-                    android:textSize="16sp"
-                    android:gravity="center_vertical"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="16dp"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:background="?android:attr/selectableItemBackground"
-                    android:drawableStart="@drawable/ic_chart"
-                    android:drawablePadding="16dp"
-                    android:drawableTint="#666666" />
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_nav_categorias"
+                android:tint="#666666"
+                android:layout_marginEnd="32dp" />
 
-                <TextView
-                    android:id="@+id/nav_configuracion"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:text="Configuración"
-                    android:textSize="16sp"
-                    android:gravity="center_vertical"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="16dp"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:background="?android:attr/selectableItemBackground"
-                    android:drawableStart="@drawable/ic_settings"
-                    android:drawablePadding="16dp"
-                    android:drawableTint="#666666" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Categorías"
+                android:textColor="#333333"
+                android:textSize="14sp"
+                android:fontFamily="sans-serif" />
 
-                <TextView
-                    android:id="@+id/nav_ayuda"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:text="Ayuda"
-                    android:textSize="16sp"
-                    android:gravity="center_vertical"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="16dp"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:background="?android:attr/selectableItemBackground"
-                    android:drawableStart="@drawable/ic_help"
-                    android:drawablePadding="16dp"
-                    android:drawableTint="#666666" />
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_arrow_right"
+                android:tint="#999999" />
 
-            </LinearLayout>
+        </LinearLayout>
 
-        </ScrollView>
+        <!-- Estadísticas -->
+        <LinearLayout
+            android:id="@+id/nav_estadisticas"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_nav_estadisticas"
+                android:tint="#666666"
+                android:layout_marginEnd="32dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Estadísticas"
+                android:textColor="#333333"
+                android:textSize="14sp"
+                android:fontFamily="sans-serif" />
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_arrow_right"
+                android:tint="#999999" />
+
+        </LinearLayout>
+
+        <!-- Configuración -->
+        <LinearLayout
+            android:id="@+id/nav_configuracion"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_nav_configuracion"
+                android:tint="#666666"
+                android:layout_marginEnd="32dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Configuración"
+                android:textColor="#333333"
+                android:textSize="14sp"
+                android:fontFamily="sans-serif" />
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_arrow_right"
+                android:tint="#999999" />
+
+        </LinearLayout>
+
+        <!-- Ayuda -->
+        <LinearLayout
+            android:id="@+id/nav_ayuda"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_nav_ayuda"
+                android:tint="#666666"
+                android:layout_marginEnd="32dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Ayuda"
+                android:textColor="#333333"
+                android:textSize="14sp"
+                android:fontFamily="sans-serif" />
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_arrow_right"
+                android:tint="#999999" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
-</com.google.android.material.navigation.NavigationView>
+</LinearLayout>
 
 </androidx.drawerlayout.widget.DrawerLayout>

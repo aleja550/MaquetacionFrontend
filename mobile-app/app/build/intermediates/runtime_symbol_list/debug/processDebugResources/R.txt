@@ -3261,7 +3261,6 @@ int id auto 0x7f090055
 int id autoComplete 0x7f090056
 int id autoCompleteToEnd 0x7f090057
 int id autoCompleteToStart 0x7f090058
-int id back_button 0x7f090059
 int id barrier 0x7f09005a
 int id baseline 0x7f09005b
 int id beginOnFirstDraw 0x7f09005c
@@ -3520,7 +3519,6 @@ int id nav_home 0x7f090158
 int id nav_item_icon 0x7f090159
 int id nav_item_title 0x7f09015a
 int id nav_recordatorios 0x7f09015b
-int id nav_view 0x7f09015c
 int id navigation_bar_item_active_indicator_view 0x7f09015d
 int id navigation_bar_item_icon_container 0x7f09015e
 int id navigation_bar_item_icon_view 0x7f09015f
@@ -3528,7 +3526,6 @@ int id navigation_bar_item_labels_group 0x7f090160
 int id navigation_bar_item_large_label_view 0x7f090161
 int id navigation_bar_item_small_label_view 0x7f090162
 int id navigation_header_container 0x7f090163
-int id navigation_view 0x7f090164
 int id never 0x7f090165
 int id neverCompleteToEnd 0x7f090166
 int id neverCompleteToStart 0x7f090167
@@ -3652,6 +3649,10 @@ int id start 0x7f0901dc
 int id startHorizontal 0x7f0901dd
 int id startToEnd 0x7f0901de
 int id startVertical 0x7f0901df
+int id stat_activos 0x7f090238
+int id stat_completados 0x7f090239
+int id stat_proximos 0x7f09023a
+int id stat_total 0x7f09023b
 int id staticLayout 0x7f0901e0
 int id staticPostLayout 0x7f0901e1
 int id stop 0x7f0901e2

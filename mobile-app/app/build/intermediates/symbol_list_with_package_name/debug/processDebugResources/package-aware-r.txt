@@ -3262,7 +3262,6 @@ id auto
 id autoComplete
 id autoCompleteToEnd
 id autoCompleteToStart
-id back_button
 id barrier
 id baseline
 id beginOnFirstDraw
@@ -3521,7 +3520,6 @@ id nav_home
 id nav_item_icon
 id nav_item_title
 id nav_recordatorios
-id nav_view
 id navigation_bar_item_active_indicator_view
 id navigation_bar_item_icon_container
 id navigation_bar_item_icon_view
@@ -3529,7 +3527,6 @@ id navigation_bar_item_labels_group
 id navigation_bar_item_large_label_view
 id navigation_bar_item_small_label_view
 id navigation_header_container
-id navigation_view
 id never
 id neverCompleteToEnd
 id neverCompleteToStart
@@ -3653,6 +3650,10 @@ id start
 id startHorizontal
 id startToEnd
 id startVertical
+id stat_activos
+id stat_completados
+id stat_proximos
+id stat_total
 id staticLayout
 id staticPostLayout
 id stop

@@ -23,9 +23,9 @@ public class GestionarRecordatoriosActivity extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
     private LinearLayout recordatoriosContainer;
-    // private TextView statTotal, statActivos, statProximos, statCompletados;
-    private String currentFilter = "Todos"; // Filtro actual: "Todos", "Hoy", "Atrasados", "Completados"
-    private String currentSearchQuery = ""; // Query actual de búsqueda
+    private TextView statTotal, statActivos, statProximos, statCompletados;
+    private String currentFilter = "Todos";
+    private String currentSearchQuery = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,11 +41,10 @@ public class GestionarRecordatoriosActivity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawer_layout);
         recordatoriosContainer = findViewById(R.id.reminders_container);
         
-        // No hay statistics TextViews en el nuevo layout, los números están hardcodeados
-        // statTotal = findViewById(R.id.stat_total);
-        // statActivos = findViewById(R.id.stat_activos);  
-        // statProximos = findViewById(R.id.stat_proximos);
-        // statCompletados = findViewById(R.id.stat_completados);
+        statTotal = findViewById(R.id.stat_total);
+        statActivos = findViewById(R.id.stat_activos);  
+        statProximos = findViewById(R.id.stat_proximos);
+        statCompletados = findViewById(R.id.stat_completados);
         
         ImageView menuButton = findViewById(R.id.menu_button);
         EditText searchBar = findViewById(R.id.search_edittext);
@@ -58,18 +57,17 @@ public class GestionarRecordatoriosActivity extends AppCompatActivity {
         LinearLayout tabCompletados = findViewById(R.id.tab_completados);
         
         // Navigation menu items
-        TextView navHome = findViewById(R.id.nav_home);
-        TextView navRecordatorios = findViewById(R.id.nav_recordatorios);
-        TextView navCategorias = findViewById(R.id.nav_categorias);
-        TextView navEstadisticas = findViewById(R.id.nav_estadisticas);
-        TextView navConfiguracion = findViewById(R.id.nav_configuracion);
-        TextView navAyuda = findViewById(R.id.nav_ayuda);
+        LinearLayout navHome = findViewById(R.id.nav_home);
+        LinearLayout navRecordatorios = findViewById(R.id.nav_recordatorios);
+        LinearLayout navCategorias = findViewById(R.id.nav_categorias);
+        LinearLayout navEstadisticas = findViewById(R.id.nav_estadisticas);
+        LinearLayout navConfiguracion = findViewById(R.id.nav_configuracion);
+        LinearLayout navAyuda = findViewById(R.id.nav_ayuda);
 
         // Search functionality
         searchBar.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                // No action needed
             }
 
             @Override
@@ -80,7 +78,6 @@ public class GestionarRecordatoriosActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                // No action needed
             }
         });
 
@@ -148,7 +145,6 @@ public class GestionarRecordatoriosActivity extends AppCompatActivity {
         navRecordatorios.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Ya estamos en Recordatorios, solo cerramos el drawer
                 drawerLayout.closeDrawer(GravityCompat.START);
             }
         });
@@ -185,14 +181,12 @@ public class GestionarRecordatoriosActivity extends AppCompatActivity {
             }
         });
         
-        // Load recordatorios initially
         loadRecordatorios();
     }
     
     @Override
     protected void onResume() {
         super.onResume();
-        // Refresh the list when returning to this activity
         loadRecordatorios();
     }
     
@@ -202,12 +196,11 @@ public class GestionarRecordatoriosActivity extends AppCompatActivity {
     }
     
     private void updateStatistics() {
-        // Los contadores ahora están hardcodeados en el layout XML
-        // RecordatoriosManager manager = RecordatoriosManager.getInstance();
-        // statTotal.setText(String.valueOf(manager.getTotalCount()));
-        // statActivos.setText(String.valueOf(manager.getActivosCount()));
-        // statProximos.setText(String.valueOf(manager.getProximosCount()));
-        // statCompletados.setText(String.valueOf(manager.getCompletadosCount()));
+        RecordatoriosManager manager = RecordatoriosManager.getInstance();
+        statTotal.setText(String.valueOf(manager.getTotalCount()));
+        statActivos.setText(String.valueOf(manager.getActivosCount()));
+        statProximos.setText(String.valueOf(manager.getProximosCount()));
+        statCompletados.setText(String.valueOf(manager.getCompletadosCount()));
     }
     
     private void updateRecordatoriosList() {
@@ -215,7 +208,6 @@ public class GestionarRecordatoriosActivity extends AppCompatActivity {
     }
 
     private void updateRecordatoriosList(List<Recordatorio> recordatorios) {
-        // Clear existing views (except static content)
         recordatoriosContainer.removeAllViews();
         
         for (Recordatorio recordatorio : recordatorios) {
@@ -225,7 +217,6 @@ public class GestionarRecordatoriosActivity extends AppCompatActivity {
     }
     
     private View createRecordatorioView(Recordatorio recordatorio) {
-        // Create the main container
         LinearLayout mainLayout = new LinearLayout(this);
         LinearLayout.LayoutParams mainParams = new LinearLayout.LayoutParams(
             ViewGroup.LayoutParams.MATCH_PARENT, 
@@ -237,8 +228,6 @@ public class GestionarRecordatoriosActivity extends AppCompatActivity {
         mainLayout.setGravity(android.view.Gravity.TOP);
         int padding = (int) (16 * getResources().getDisplayMetrics().density);
         mainLayout.setPadding(padding, padding, padding, padding);
-        
-        // Set background with border based on category
         String categoria = recordatorio.getCategoria().toLowerCase();
         switch (categoria) {
             case "salud":
@@ -258,15 +247,13 @@ public class GestionarRecordatoriosActivity extends AppCompatActivity {
                 break;
         }
         
-        // Create content layout
+        
         LinearLayout contentLayout = new LinearLayout(this);
         LinearLayout.LayoutParams contentParams = new LinearLayout.LayoutParams(
             0, ViewGroup.LayoutParams.WRAP_CONTENT, 1.0f
         );
         contentLayout.setLayoutParams(contentParams);
         contentLayout.setOrientation(LinearLayout.VERTICAL);
-        
-        // Category label
         TextView categoryLabel = new TextView(this);
         String categoriaText = recordatorio.getCategoria();
         String emoji = recordatorio.getCategoriaEmoji();
@@ -276,8 +263,6 @@ public class GestionarRecordatoriosActivity extends AppCompatActivity {
         categoryLabel.setText(categoriaText);
         categoryLabel.setTextSize(12);
         categoryLabel.setTextColor(Color.WHITE);
-        
-        // Set rounded background based on category
         switch (categoria) {
             case "salud":
                 categoryLabel.setBackgroundResource(R.drawable.category_chip_salud);
@@ -303,8 +288,6 @@ public class GestionarRecordatoriosActivity extends AppCompatActivity {
         catParams.bottomMargin = (int) (4 * getResources().getDisplayMetrics().density);
         categoryLabel.setLayoutParams(catParams);
         contentLayout.addView(categoryLabel);
-        
-        // Title
         TextView titleLabel = new TextView(this);
         titleLabel.setText(recordatorio.getTitulo());
         titleLabel.setTextSize(16);
@@ -316,8 +299,6 @@ public class GestionarRecordatoriosActivity extends AppCompatActivity {
         titleParams.bottomMargin = (int) (4 * getResources().getDisplayMetrics().density);
         titleLabel.setLayoutParams(titleParams);
         contentLayout.addView(titleLabel);
-        
-        // Status
         TextView statusLabel = new TextView(this);
         statusLabel.setText("● " + recordatorio.getEstado());
         statusLabel.setTextSize(12);

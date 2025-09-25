@@ -2,60 +2,99 @@ package com.remindmeplus.app;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import androidx.appcompat.app.ActionBarDrawerToggle;
+import android.widget.LinearLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import com.google.android.material.navigation.NavigationView;
 
-public class EstadisticasActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class EstadisticasActivity extends AppCompatActivity {
 
-    private DrawerLayout drawer;
+    private DrawerLayout drawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
+        
         setContentView(R.layout.activity_estadisticas);
 
-        // Setup back button
-        ImageView backButton = findViewById(R.id.back_button);
-        backButton.setOnClickListener(new View.OnClickListener() {
+        drawerLayout = findViewById(R.id.drawer_layout);
+        
+        ImageView menuButton = findViewById(R.id.menu_button);
+        
+        LinearLayout navHome = findViewById(R.id.nav_home);
+        LinearLayout navRecordatorios = findViewById(R.id.nav_recordatorios);
+        LinearLayout navCategorias = findViewById(R.id.nav_categorias);
+        LinearLayout navEstadisticas = findViewById(R.id.nav_estadisticas);
+        LinearLayout navConfiguracion = findViewById(R.id.nav_configuracion);
+        LinearLayout navAyuda = findViewById(R.id.nav_ayuda);
+
+        menuButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                finish();
+            public void onClick(View view) {
+                drawerLayout.openDrawer(GravityCompat.START);
             }
         });
 
-        drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+        navHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(EstadisticasActivity.this, HomeScreenActivity.class));
+                drawerLayout.closeDrawer(GravityCompat.START);
+            }
+        });
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, null,
-                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
+        navRecordatorios.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(EstadisticasActivity.this, GestionarRecordatoriosActivity.class));
+                drawerLayout.closeDrawer(GravityCompat.START);
+            }
+        });
+
+        navCategorias.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(EstadisticasActivity.this, GestionarCategoriasActivity.class));
+                drawerLayout.closeDrawer(GravityCompat.START);
+            }
+        });
+
+        navEstadisticas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                drawerLayout.closeDrawer(GravityCompat.START);
+            }
+        });
+
+        navConfiguracion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(EstadisticasActivity.this, ConfiguracionActivity.class));
+                drawerLayout.closeDrawer(GravityCompat.START);
+            }
+        });
+
+        navAyuda.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(EstadisticasActivity.this, AyudaActivity.class));
+                drawerLayout.closeDrawer(GravityCompat.START);
+            }
+        });
     }
 
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        
-        if (id == R.id.nav_home) {
-            startActivity(new Intent(this, HomeScreenActivity.class));
-        } else if (id == R.id.nav_recordatorios) {
-            startActivity(new Intent(this, GestionarRecordatoriosActivity.class));
-        } else if (id == R.id.nav_categorias) {
-            startActivity(new Intent(this, GestionarCategoriasActivity.class));
-        } else if (id == R.id.nav_configuracion) {
-            startActivity(new Intent(this, ConfiguracionActivity.class));
-        } else if (id == R.id.nav_ayuda) {
-            startActivity(new Intent(this, AyudaActivity.class));
+    public void onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
         }
-
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
     }
 }
