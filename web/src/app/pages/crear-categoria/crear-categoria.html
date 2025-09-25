@@ -1,0 +1,169 @@
+<!-- Breadcrumb -->
+<div class="mb-8">
+  <nav class="flex items-center space-x-2 text-gray-600">
+    <span class="font-montserrat text-lg">Dashboard</span>
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 16 16">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.64645 3.14645C5.45118 3.34171 5.45118 3.65829 5.64645 3.85355L9.79289 8L5.64645 12.1464C5.45118 12.3417 5.45118 12.6583 5.64645 12.8536C5.84171 13.0488 6.15829 13.0488 6.35355 12.8536L10.8536 8.35355C11.0488 8.15829 11.0488 7.84171 10.8536 7.64645L6.35355 3.14645C6.15829 2.95118 5.84171 2.95118 5.64645 3.14645Z"/>
+    </svg>
+    <span class="font-montserrat text-lg">Categorías</span>
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 16 16">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.64645 3.14645C5.45118 3.34171 5.45118 3.65829 5.64645 3.85355L9.79289 8L5.64645 12.1464C5.45118 12.3417 5.45118 12.6583 5.64645 12.8536C5.84171 13.0488 6.15829 13.0488 6.35355 12.8536L10.8536 8.35355C11.0488 8.15829 11.0488 7.84171 10.8536 7.64645L6.35355 3.14645C6.15829 2.95118 5.84171 2.95118 5.64645 3.14645Z"/>
+    </svg>
+    <span class="font-montserrat text-lg font-bold">Nuevo</span>
+  </nav>
+</div>
+
+<!-- Page Title -->
+<div class="mb-12">
+  <h2 class="text-mono font-montserrat text-2xl lg:text-3xl font-bold">Crear Nueva Categoría</h2>
+</div>
+
+<!-- Form Container -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
+  
+  <!-- Left Column - Basic Information -->
+  <div>
+    <h3 class="text-mono font-montserrat text-xl font-bold mb-6">Información Básica</h3>
+    
+    <!-- Name Input -->
+    <div class="mb-6">
+      <label class="block text-mono font-montserrat text-sm font-bold italic mb-2">
+        Nombre*
+      </label>
+      <input 
+        type="text" 
+        placeholder="Ej: Medicamentos"
+        class="w-full px-3 py-2 border border-gray-600 rounded focus:outline-none focus:border-gray-800 font-montserrat">
+    </div>
+
+    <!-- Icon Selection -->
+    <div class="mb-6">
+      <label class="block text-mono font-montserrat text-sm font-bold italic mb-4">
+        Icono*
+      </label>
+      <div class="flex gap-3">
+        <button 
+          (click)="onIconSelect('health')"
+          [class]="selectedIcon() === 'health' ? 'p-2 border-2 border-azul-button rounded' : 'p-2 border border-gray-300 rounded hover:border-gray-500 transition-colors'">
+          <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2ZM12 21.5C7.03 21.5 3 17.47 3 12.5C3 7.53 7.03 3.5 12 3.5C16.97 3.5 21 7.53 21 12.5C21 17.47 16.97 21.5 12 21.5ZM12 19.5C15.86 19.5 19 16.36 19 12.5C19 8.64 15.86 5.5 12 5.5C8.14 5.5 5 8.64 5 12.5C5 16.36 8.14 19.5 12 19.5ZM15.5 12.5H12.5V9.5H11.5V12.5H8.5V13.5H11.5V16.5H12.5V13.5H15.5V12.5Z"/>
+          </svg>
+        </button>
+        
+        <button 
+          (click)="onIconSelect('work')"
+          [class]="selectedIcon() === 'work' ? 'p-2 border-2 border-azul-button rounded' : 'p-2 border border-gray-300 rounded hover:border-gray-500 transition-colors'">
+          <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M10 2H14C14.55 2 15 2.45 15 3V4H20C20.55 4 21 4.45 21 5S20.55 6 20 6H19V19C19 20.1 18.1 21 17 21H7C5.9 21 5 20.1 5 19V6H4C3.45 6 3 5.55 3 5S3.45 4 4 4H9V3C9 2.45 9.45 2 10 2ZM11 4H13V3H11V4ZM7 6V19H17V6H7ZM9 8V17H11V8H9ZM13 8V17H15V8H13Z"/>
+          </svg>
+        </button>
+        
+        <button 
+          (click)="onIconSelect('study')"
+          [class]="selectedIcon() === 'study' ? 'p-2 border-2 border-azul-button rounded' : 'p-2 border border-gray-300 rounded hover:border-gray-500 transition-colors'">
+          <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 3L1 9L12 15L21 10.09V17H23V9M5 13.18V17.18L12 21L19 17.18V13.18L12 17L5 13.18Z"/>
+          </svg>
+        </button>
+        
+        <button 
+          (click)="onIconSelect('personal')"
+          [class]="selectedIcon() === 'personal' ? 'p-2 border-2 border-azul-button rounded' : 'p-2 border border-gray-300 rounded hover:border-gray-500 transition-colors'">
+          <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Color Selection -->
+    <div>
+      <label class="block text-mono font-montserrat text-sm font-bold italic mb-4">
+        Color*
+      </label>
+      <div class="flex gap-3">
+        @for (color of colors; track color) {
+          <button 
+            (click)="onColorSelect(color)"
+            [class]="selectedColor() === color ? 'w-10 h-10 rounded-full border-4 border-azul-button' : 'w-10 h-10 rounded-full border-2 border-gray-300 hover:border-gray-500 transition-colors'"
+            [style.background-color]="color">
+          </button>
+        }
+      </div>
+    </div>
+  </div>
+
+  <!-- Right Column - Configuration -->
+  <div>
+    <h3 class="text-mono font-montserrat text-xl font-bold mb-6">Configuración</h3>
+    
+    <!-- Sound Input -->
+    <div class="mb-6">
+      <label class="block text-mono font-montserrat text-sm font-bold italic mb-2">
+        Sonido
+      </label>
+      <input 
+        type="text" 
+        placeholder="Canción_Relajante.mp3"
+        class="w-full px-3 py-2 border border-gray-600 rounded focus:outline-none focus:border-gray-800 font-montserrat">
+    </div>
+
+    <!-- Vibration Options -->
+    <div>
+      <label class="block text-mono font-montserrat text-sm font-bold italic mb-4">
+        Vibración
+      </label>
+      <div class="space-y-3">
+        <label class="flex items-center">
+          <input 
+            type="radio" 
+            name="vibration" 
+            value="suave"
+            (change)="onVibrationChange('suave')"
+            class="mr-3" 
+            checked>
+          <span class="font-montserrat text-sm">Suave (3 pulsos cortos)</span>
+        </label>
+        <label class="flex items-center">
+          <input 
+            type="radio" 
+            name="vibration" 
+            value="normal"
+            (change)="onVibrationChange('normal')"
+            class="mr-3">
+          <span class="font-montserrat text-sm">Normal (pulso continuo)</span>
+        </label>
+        <label class="flex items-center">
+          <input 
+            type="radio" 
+            name="vibration" 
+            value="intensa"
+            (change)="onVibrationChange('intensa')"
+            class="mr-3">
+          <span class="font-montserrat text-sm">Intensa (pulsos largos)</span>
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Action Buttons -->
+<div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-8">
+  <button 
+    (click)="onCancel()"
+    class="flex items-center justify-center gap-2 px-8 py-4 border border-azul-button text-mono font-montserrat text-base font-bold rounded hover:bg-gray-100 transition-colors">
+    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="10"/>
+    </svg>
+    Cancelar
+  </button>
+  
+  <button 
+    (click)="onCreate()"
+    class="flex items-center justify-center gap-2 px-8 py-4 bg-azul-button text-blanco font-montserrat text-base font-bold rounded hover:bg-azul-menu-selector transition-colors">
+    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="10"/>
+    </svg>
+    Crear
+  </button>
+</div>

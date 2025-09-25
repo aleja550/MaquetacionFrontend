@@ -1,0 +1,69 @@
+<!-- Breadcrumb -->
+<div class="mb-8">
+  <nav class="flex items-center space-x-2 text-gray-600">
+    <span class="font-montserrat text-lg">Dashboard</span>
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 16 16">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.64645 3.14645C5.45118 3.34171 5.45118 3.65829 5.64645 3.85355L9.79289 8L5.64645 12.1464C5.45118 12.3417 5.45118 12.6583 5.64645 12.8536C5.84171 13.0488 6.15829 13.0488 6.35355 12.8536L10.8536 8.35355C11.0488 8.15829 11.0488 7.84171 10.8536 7.64645L6.35355 3.14645C6.15829 2.95118 5.84171 2.95118 5.64645 3.14645Z"/>
+    </svg>
+    <span class="font-montserrat text-lg">Categorías</span>
+  </nav>
+</div>
+
+<!-- Page Title -->
+<div class="mb-12">
+  <h2 class="text-mono font-montserrat text-2xl lg:text-3xl font-bold">Gestión de categorías</h2>
+</div>
+
+<!-- Categories Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+  @for (category of categories(); track category.id) {
+    <div class="bg-blanco rounded-lg shadow-card p-6 flex flex-col min-h-[227px] min-w-0 overflow-hidden text-center">
+      
+      <!-- Category Header -->
+      <div class="flex items-center justify-center mb-4">
+        <div 
+          class="w-6 h-6 rounded-full mr-3 flex-shrink-0" 
+          [style.background-color]="category.color">
+        </div>
+        <h3 class="text-mono font-montserrat text-lg sm:text-xl font-bold truncate min-w-0">
+          {{ category.name }}
+        </h3>
+      </div>
+      
+      <!-- Reminder Count -->
+      <p class="text-mono font-montserrat text-sm sm:text-base mb-6 flex-grow">
+        {{ category.reminderCount }} Recordatorios
+      </p>
+      
+      <!-- Action Buttons (uno a la izq y otro a la der) -->
+      <div class="flex justify-between items-center mt-auto w-full">
+        <button 
+          (click)="onEditCategory(category)"
+          class="flex items-center gap-2 px-3 py-2 bg-gray-200 text-gray-700 font-montserrat text-xs sm:text-sm font-bold rounded hover:bg-gray-300 transition-colors">
+          <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"/>
+          </svg>
+          <span class="truncate">Editar</span>
+        </button>
+        
+        <button 
+          (click)="onDeleteCategory(category)"
+          class="flex items-center gap-2 px-3 py-2 bg-red-500 text-blanco font-montserrat text-xs sm:text-sm font-bold rounded hover:bg-red-600 transition-colors">
+          <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"/>
+          </svg>
+          <span class="truncate">Eliminar</span>
+        </button>
+      </div>
+    </div>
+  }
+</div>
+
+<!-- New Category Button -->
+<div class="fixed bottom-8 right-8">
+  <button 
+    (click)="onNewCategory()"
+    class="bg-azul-button text-blanco font-montserrat text-base font-bold px-6 py-3 rounded-lg hover:bg-azul-menu-selector transition-colors shadow-lg">
+    + Nueva Categoría
+  </button>
+</div>

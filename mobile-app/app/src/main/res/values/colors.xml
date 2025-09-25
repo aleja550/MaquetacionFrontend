@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#825BEE</color>
+    <color name="colorPrimaryDark">#5F42AA</color>
+    <color name="colorAccent">#F43840</color>
+    
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="gray">#5F6774</color>
+    <color name="lightGray">#F8F9FA</color>
+    <color name="darkGray">#A09CAB</color>
+    
+        <color name="gray_300">#D9D9D9</color>
+    <color name="gray_500">#9E9E9E</color>
+    <color name="gray_600">#757575</color>
+    <color name="gray_light">#F5F5F5</color>
+    
+    <color name="blue">#2196F3</color>
+    <color name="red">#F44336</color>
+    <color name="orange">#FF9800</color>
+    <color name="purple">#825BEE</color>
+    <color name="green">#4CAF50</color>
+    
+    <color name="background">#F8F9FA</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="onSurface">#000000</color>
+    <color name="onBackground">#000000</color>
+    
+    <!-- Launcher icon colors -->
+    <color name="ic_launcher_background">#825BEE</color>
+</resources>
