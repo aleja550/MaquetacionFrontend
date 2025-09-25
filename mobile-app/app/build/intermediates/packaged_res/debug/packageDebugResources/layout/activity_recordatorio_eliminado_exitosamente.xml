@@ -3,61 +3,98 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#FFFFFF"
-    android:padding="24dp"
-    android:gravity="center">
+    android:background="#F5F5F5">
 
-    <!-- Check icon -->
-    <ImageView
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#4285F4"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="RECORDATORIO ELIMINADO"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center" />
+
+    </LinearLayout>
+
+    <!-- Content -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center">
+
+    <!-- Delete Icon -->
+    <FrameLayout
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:src="@drawable/ic_check_circle"
-        android:layout_marginBottom="24dp" />
+        android:layout_marginBottom="24dp">
 
-    <!-- Success title -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="¡Recordatorio eliminado!"
-        android:textSize="24sp"
-        android:textColor="#333333"
-        android:textStyle="bold"
-        android:layout_marginBottom="16dp"
-        android:gravity="center" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/delete_circle_background" />
 
-    <!-- Success message -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="El recordatorio ha sido eliminado exitosamente:"
-        android:textSize="16sp"
-        android:textColor="#666666"
-        android:layout_marginBottom="12dp"
-        android:gravity="center" />
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_delete_white"
+            android:layout_gravity="center" />
 
-    <!-- Deleted reminder title -->
-    <TextView
-        android:id="@+id/deleted_reminder_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Título del recordatorio"
-        android:textSize="18sp"
-        android:textColor="#333333"
-        android:textStyle="bold"
-        android:layout_marginBottom="32dp"
-        android:gravity="center"
-        android:background="#F5F5F5"
-        android:padding="12dp" />
+    </FrameLayout>
 
-    <!-- Back button -->
-    <Button
-        android:id="@+id/btn_volver"
+        <!-- Success Message -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¡Recordatorio eliminado\nexitosamente!"
+            android:textColor="#333333"
+            android:textSize="24sp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:layout_marginBottom="32dp" />
+
+    </LinearLayout>
+
+    <!-- Bottom Buttons -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:text="Volver a Recordatorios"
-        android:textSize="16sp"
-        android:textColor="#FFFFFF"
-        android:background="#4A90E2"
-        android:layout_marginTop="24dp" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <Button
+            android:id="@+id/btn_ver_recordatorios"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="VER MIS RECORDATORIOS"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif-medium"
+            android:background="@drawable/create_button_background"
+            android:layout_marginBottom="12dp" />
+
+        <Button
+            android:id="@+id/btn_crear_otro"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="CREAR OTRO RECORDATORIO"
+            android:textColor="#4285F4"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif-medium"
+            android:background="@drawable/secondary_button_background" />
+
+    </LinearLayout>
 
 </LinearLayout>

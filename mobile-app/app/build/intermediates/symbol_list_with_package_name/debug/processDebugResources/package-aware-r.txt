@@ -3042,6 +3042,8 @@ drawable category_chip_trabajo
 drawable category_info_card_background
 drawable circle_background
 drawable circle_red
+drawable confirm_button_background
+drawable confirm_button_correct_background
 drawable create_button_background
 drawable delete_circle_background
 drawable design_fab_background
@@ -3107,6 +3109,7 @@ drawable icono_selector_background
 drawable icono_selector_selected
 drawable indeterminate_static
 drawable input_background
+drawable input_field_background
 drawable m3_avd_hide_password
 drawable m3_avd_show_password
 drawable m3_bottom_sheet_drag_handle
@@ -3128,6 +3131,8 @@ drawable material_ic_keyboard_arrow_previous_black_24dp
 drawable material_ic_keyboard_arrow_right_black_24dp
 drawable material_ic_menu_arrow_down_black_24dp
 drawable material_ic_menu_arrow_up_black_24dp
+drawable math_challenge_background
+drawable math_input_background
 drawable mtrl_bottomsheet_drag_handle
 drawable mtrl_checkbox_button
 drawable mtrl_checkbox_button_checked_unchecked
@@ -3180,6 +3185,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable phrase_challenge_background
 drawable radio_selected
 drawable reminder_card_background
 drawable search_background
@@ -3187,6 +3193,7 @@ drawable secondary_button_background
 drawable sound_selector_background
 drawable success_circle_background
 drawable tab_selector
+drawable target_phrase_background
 drawable test_level_drawable
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -3291,7 +3298,10 @@ id bounce
 id bounceBoth
 id bounceEnd
 id bounceStart
+id btn_activar_estudio
+id btn_activar_salud
 id btn_back
+id btn_confirmar
 id btn_crear_categoria
 id btn_crear_otra
 id btn_crear_otro
@@ -3301,7 +3311,6 @@ id btn_guardar
 id btn_guardar_recordatorio
 id btn_ver_categorias
 id btn_ver_recordatorios
-id btn_volver
 id buttonPanel
 id cache_measures
 id callMeasure
@@ -3356,7 +3365,6 @@ id delete_ejercicio
 id delete_estudio
 id delete_salud
 id delete_trabajo
-id deleted_reminder_title
 id deltaRelative
 id dependency_ordering
 id design_bottom_sheet
@@ -3408,7 +3416,9 @@ id endToStart
 id enterAlways
 id enterAlwaysCollapsed
 id escape
+id et_frase_usuario
 id et_nombre
+id et_respuesta_usuario
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
@@ -3748,11 +3758,17 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id tv_categoria
 id tv_category_description
 id tv_category_name
+id tv_contador_caracteres
+id tv_frase_objetivo
+id tv_hora_recordatorio
 id tv_icono_categoria
 id tv_nombre_categoria
+id tv_operacion_matematica
 id tv_reminders_count
+id tv_titulo_recordatorio
 id tv_vibracion_categoria
 id unchecked
 id uniform
@@ -3894,6 +3910,8 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_alarma_desafio_matematico
+layout activity_alarma_frase
 layout activity_ayuda
 layout activity_categoria_creada_exitosamente
 layout activity_categoria_eliminada_exitosamente

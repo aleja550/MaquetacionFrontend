@@ -76,6 +76,12 @@
             android:parentActivityName=".GestionarCategoriasActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
+        <activity
+            android:name=".AlarmaFraseActivity"
+            android:exported="false"
+            android:parentActivityName=".HomeScreenActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
                 <activity
             android:name=".AlarmaDesafioMatematicoActivity"
             android:exported="false"

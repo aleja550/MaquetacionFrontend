@@ -40,6 +40,8 @@ public class HomeScreenActivity extends AppCompatActivity {
         EditText searchBar = findViewById(R.id.search_bar);
         TextView verTodos = findViewById(R.id.ver_todos);
         FloatingActionButton fabAdd = findViewById(R.id.fab_add);
+        TextView btnActivarSalud = findViewById(R.id.btn_activar_salud);
+        TextView btnActivarEstudio = findViewById(R.id.btn_activar_estudio);
 
         // Navigation menu items
         LinearLayout navHome = findViewById(R.id.nav_home);
@@ -93,6 +95,29 @@ public class HomeScreenActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomeScreenActivity.this, NuevoRecordatorioActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnActivarSalud.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Navegar a la pantalla de alarma frase
+                Intent intent = new Intent(HomeScreenActivity.this, AlarmaFraseActivity.class);
+                intent.putExtra("TITULO_RECORDATORIO", "Tomar Losartán 50mg");
+                intent.putExtra("HORA_RECORDATORIO", "08:00 AM");
+                intent.putExtra("FRASE_OBJETIVO", "Hoy voy a lograr mis metas");
+                startActivity(intent);
+            }
+        });
+
+        btnActivarEstudio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Navegar a la pantalla de alarma desafío matemático
+                Intent intent = new Intent(HomeScreenActivity.this, AlarmaDesafioMatematicoActivity.class);
+                intent.putExtra("TITULO_RECORDATORIO", "Estudiar UX Research");
+                intent.putExtra("HORA_RECORDATORIO", "7:00 AM");
                 startActivity(intent);
             }
         });
