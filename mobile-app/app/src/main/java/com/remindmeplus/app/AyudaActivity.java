@@ -17,7 +17,7 @@ public class AyudaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        // Hide the default ActionBar to avoid double header
+        
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
@@ -28,7 +28,7 @@ public class AyudaActivity extends AppCompatActivity {
         
         ImageView menuButton = findViewById(R.id.menu_button);
         
-        // Navigation menu items
+        
         LinearLayout navHome = findViewById(R.id.nav_home);
         LinearLayout navRecordatorios = findViewById(R.id.nav_recordatorios);
         LinearLayout navCategorias = findViewById(R.id.nav_categorias);
@@ -43,7 +43,7 @@ public class AyudaActivity extends AppCompatActivity {
             }
         });
 
-        // Navigation menu listeners
+        
         navHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -87,7 +87,7 @@ public class AyudaActivity extends AppCompatActivity {
         navAyuda.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Ya estamos en Ayuda, solo cerramos el drawer
+                
                 drawerLayout.closeDrawer(GravityCompat.START);
             }
         });

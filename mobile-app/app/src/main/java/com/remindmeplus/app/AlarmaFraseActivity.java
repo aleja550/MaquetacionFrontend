@@ -50,7 +50,7 @@ public class AlarmaFraseActivity extends AppCompatActivity {
     }
     
     private void configurarDatos() {
-        // Obtener datos del Intent si están disponibles
+        
         Intent intent = getIntent();
         if (intent.hasExtra("TITULO_RECORDATORIO")) {
             tituloRecordatorio = intent.getStringExtra("TITULO_RECORDATORIO");
@@ -62,73 +62,73 @@ public class AlarmaFraseActivity extends AppCompatActivity {
             fraseObjetivo = intent.getStringExtra("FRASE_OBJETIVO");
         }
         
-        // Configurar la información en las vistas
+        
         tvTitulo.setText(tituloRecordatorio);
         tvHora.setText(horaRecordatorio);
         tvCategoria.setText("● Salud 💊");
         tvFraseObjetivo.setText(fraseObjetivo);
         
-        // Inicializar contador
+        
         actualizarContador(0);
     }
     
     private void configurarEventos() {
-        // Inicialmente el botón está desactivado
+        
         btnConfirmar.setEnabled(false);
         btnConfirmar.setAlpha(0.5f);
         
-        // TextWatcher para validar la frase en tiempo real
+        
         etFraseUsuario.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                // No necesario
+                
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 String textoUsuario = s.toString();
                 
-                // Actualizar contador de caracteres
+                
                 actualizarContador(textoUsuario.length());
                 
-                // Validar si coincide exactamente con la frase objetivo
+                
                 boolean coincide = textoUsuario.equals(fraseObjetivo);
                 btnConfirmar.setEnabled(coincide);
                 
-                // Cambiar apariencia del botón según coincidencia
+                
                 if (coincide) {
-                    // Verde cuando coincide exactamente
+                    
                     btnConfirmar.setAlpha(1.0f);
                     btnConfirmar.setBackgroundResource(R.drawable.confirm_button_correct_background);
                 } else {
-                    // Gris cuando no coincide
+                    
                     btnConfirmar.setAlpha(0.5f);
                     btnConfirmar.setBackgroundResource(R.drawable.confirm_button_background);
                 }
                 
-                // Cambiar color del texto según coincidencia
+                
                 if (textoUsuario.isEmpty()) {
-                    // Texto normal cuando está vacío
+                    
                     etFraseUsuario.setTextColor(getResources().getColor(android.R.color.black));
                 } else if (coincide) {
-                    // Verde cuando coincide exactamente
+                    
                     etFraseUsuario.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
                 } else {
-                    // Rojo cuando no coincide
+                    
                     etFraseUsuario.setTextColor(getResources().getColor(android.R.color.holo_red_dark));
                 }
             }
 
             @Override
             public void afterTextChanged(Editable s) {
-                // No necesario
+                
             }
         });
         
         btnConfirmar.setOnClickListener(v -> {
-            // Solo proceder si el botón está habilitado
+            
             if (btnConfirmar.isEnabled()) {
-                // Alarma confirmada exitosamente, regresar al home
+                
                 Intent homeIntent = new Intent(AlarmaFraseActivity.this, HomeScreenActivity.class);
                 homeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(homeIntent);
@@ -144,8 +144,8 @@ public class AlarmaFraseActivity extends AppCompatActivity {
     
     @Override
     public void onBackPressed() {
-        // No permitir salir hasta que se escriba la frase correctamente
-        // El usuario debe completar el desafío para poder continuar
+        
+        
         return;
     }
 }

@@ -28,17 +28,17 @@ public class NuevoRecordatorioActivity extends AppCompatActivity {
     private Button btnGuardar;
     private ImageView btnBack;
 
-    // Validation flags
+    
     private boolean tituloValid = false;
     private boolean fechaValid = false;
     private String selectedFechaHora = "";
 
-    // Selected values
+    
     private String selectedCategoria = "Salud";
     private String selectedRepetir = "Una vez";
     private String selectedAntiPostponer = "Resolver operación matemática";
     
-    // Edit mode
+    
     private boolean modoEdicion = false;
     private int recordatorioId = -1;
 
@@ -46,7 +46,7 @@ public class NuevoRecordatorioActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        // Hide the default ActionBar
+        
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
@@ -90,16 +90,16 @@ public class NuevoRecordatorioActivity extends AppCompatActivity {
         modoEdicion = intent.getBooleanExtra("MODO_EDICION", false);
         
         if (modoEdicion) {
-            // Cambiar título del header
+            
             TextView headerTitle = findViewById(R.id.header_title);
             if (headerTitle != null) {
                 headerTitle.setText("EDITAR RECORDATORIO");
             }
             
-            // Cambiar texto del botón
+            
             btnGuardar.setText("GUARDAR CAMBIOS");
             
-            // Cargar datos del recordatorio
+            
             recordatorioId = intent.getIntExtra("RECORDATORIO_ID", -1);
             String titulo = intent.getStringExtra("RECORDATORIO_TITULO");
             String fechaHora = intent.getStringExtra("RECORDATORIO_FECHA_HORA");
@@ -107,7 +107,7 @@ public class NuevoRecordatorioActivity extends AppCompatActivity {
             String repetir = intent.getStringExtra("RECORDATORIO_REPETIR");
             String antiPostponer = intent.getStringExtra("RECORDATORIO_ANTI_POSTPONER");
             
-            // Poblar campos
+            
             if (titulo != null) {
                 editTitulo.setText(titulo);
                 tituloValid = true;
@@ -127,7 +127,7 @@ public class NuevoRecordatorioActivity extends AppCompatActivity {
             }
             if (antiPostponer != null) {
                 selectedAntiPostponer = antiPostponer;
-                // Seleccionar el radio button correspondiente
+                
                 if (antiPostponer.contains("matemática")) {
                     rbMatematica.setChecked(true);
                 } else if (antiPostponer.contains("frase")) {
@@ -140,7 +140,7 @@ public class NuevoRecordatorioActivity extends AppCompatActivity {
     }
 
     private void setupValidation() {
-        // Título validation
+        
         editTitulo.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
@@ -162,11 +162,11 @@ public class NuevoRecordatorioActivity extends AppCompatActivity {
         
         btnGuardar.setEnabled(allValid);
         if (allValid) {
-            btnGuardar.setBackgroundColor(0xFF4A90E2); // Blue
-            btnGuardar.setTextColor(0xFFFFFFFF); // White
+            btnGuardar.setBackgroundColor(0xFF4A90E2); 
+            btnGuardar.setTextColor(0xFFFFFFFF); 
         } else {
-            btnGuardar.setBackgroundColor(0xFFCCCCCC); // Gray
-            btnGuardar.setTextColor(0xFF666666); // Dark gray
+            btnGuardar.setBackgroundColor(0xFFCCCCCC); 
+            btnGuardar.setTextColor(0xFF666666); 
         }
     }
 
@@ -177,7 +177,7 @@ public class NuevoRecordatorioActivity extends AppCompatActivity {
         layoutCategoria.setOnClickListener(v -> showCategoriaSelector());
         layoutRepetir.setOnClickListener(v -> showRepetirSelector());
         
-        // Radio buttons functionality
+        
         radioMatematica.setOnClickListener(v -> selectRadioOption(1));
         radioFrase.setOnClickListener(v -> selectRadioOption(2));
         radioAleatorio.setOnClickListener(v -> selectRadioOption(3));
@@ -190,21 +190,21 @@ public class NuevoRecordatorioActivity extends AppCompatActivity {
     }
 
     private void selectRadioOption(int option) {
-        // Reset all radio buttons
+        
         rbMatematica.setChecked(false);
         rbFrase.setChecked(false);
         rbAleatorio.setChecked(false);
         
-        // Reset all backgrounds
-        radioMatematica.setBackgroundColor(0xFFFFFFFF); // White
+        
+        radioMatematica.setBackgroundColor(0xFFFFFFFF); 
         radioFrase.setBackgroundColor(0xFFFFFFFF);
         radioAleatorio.setBackgroundColor(0xFFFFFFFF);
         
-        // Set selected option
+        
         switch (option) {
             case 1:
                 rbMatematica.setChecked(true);
-                radioMatematica.setBackgroundColor(0xFFE3F2FD); // Light blue
+                radioMatematica.setBackgroundColor(0xFFE3F2FD); 
                 selectedAntiPostponer = "Resolver operación matemática";
                 break;
             case 2:
@@ -223,16 +223,16 @@ public class NuevoRecordatorioActivity extends AppCompatActivity {
     private void showDateTimePicker() {
         Calendar calendar = Calendar.getInstance();
         
-        // First show date picker
+        
         DatePickerDialog datePickerDialog = new DatePickerDialog(this,
                 (view, year, month, dayOfMonth) -> {
-                    // Then show time picker
+                    
                     TimePickerDialog timePickerDialog = new TimePickerDialog(this,
                             (timeView, hourOfDay, minute) -> {
                                 selectedFechaHora = String.format("%02d/%02d/%d - %02d:%02d", 
                                     dayOfMonth, month + 1, year, hourOfDay, minute);
                                 textFechaHora.setText(selectedFechaHora);
-                                textFechaHora.setTextColor(0xFF333333); // Change to normal color
+                                textFechaHora.setTextColor(0xFF333333); 
                                 fechaValid = true;
                                 asteriscoFecha.setVisibility(View.GONE);
                                 updateButtonState();
@@ -306,7 +306,7 @@ public class NuevoRecordatorioActivity extends AppCompatActivity {
         String titulo = editTitulo.getText().toString().trim();
         
         if (modoEdicion) {
-            // Modo edición: actualizar recordatorio existente
+            
             RecordatoriosManager manager = RecordatoriosManager.getInstance();
             boolean actualizado = manager.actualizarRecordatorio(
                 recordatorioId,
@@ -318,7 +318,7 @@ public class NuevoRecordatorioActivity extends AppCompatActivity {
             );
             
             if (actualizado) {
-                // Mostrar toast y volver a gestionar recordatorios
+                
                 android.widget.Toast.makeText(this, "Recordatorio editado correctamente", android.widget.Toast.LENGTH_SHORT).show();
                 
                 Intent gestionarIntent = new Intent(this, GestionarRecordatoriosActivity.class);
@@ -327,7 +327,7 @@ public class NuevoRecordatorioActivity extends AppCompatActivity {
                 finish();
             }
         } else {
-            // Modo crear: nuevo recordatorio
+            
             Recordatorio nuevoRecordatorio = new Recordatorio(
                 titulo, 
                 selectedFechaHora, 
@@ -336,10 +336,10 @@ public class NuevoRecordatorioActivity extends AppCompatActivity {
                 selectedRepetir
             );
             
-            // Add to manager
+            
             RecordatoriosManager.getInstance().agregarRecordatorio(nuevoRecordatorio);
             
-            // Create intent for success activity
+            
             Intent intent = new Intent(this, RecordatorioCreadoExitosamenteActivity.class);
             intent.putExtra("titulo", titulo);
             intent.putExtra("fecha", selectedFechaHora);

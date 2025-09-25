@@ -18,14 +18,14 @@ public class CategoriaEliminadaExitosamenteActivity extends AppCompatActivity {
         
         setContentView(R.layout.activity_categoria_eliminada_exitosamente);
         
-        // Configurar botones
+        
         Button btnVerCategorias = findViewById(R.id.btn_ver_categorias);
         Button btnCrearOtra = findViewById(R.id.btn_crear_otra);
         
         btnVerCategorias.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Volver a GestionarCategoriasActivity y cerrar las demás actividades
+                
                 Intent intent = new Intent(CategoriaEliminadaExitosamenteActivity.this, GestionarCategoriasActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intent);
@@ -36,7 +36,7 @@ public class CategoriaEliminadaExitosamenteActivity extends AppCompatActivity {
         btnCrearOtra.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Ir a crear nueva categoría
+                
                 Intent intent = new Intent(CategoriaEliminadaExitosamenteActivity.this, NuevaCategoriaActivity.class);
                 startActivity(intent);
                 finish();
@@ -46,7 +46,7 @@ public class CategoriaEliminadaExitosamenteActivity extends AppCompatActivity {
     
     @Override
     public void onBackPressed() {
-        // Al presionar back, ir a gestionar categorías
+        
         Intent intent = new Intent(this, GestionarCategoriasActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         startActivity(intent);
