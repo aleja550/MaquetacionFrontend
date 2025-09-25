@@ -40,6 +40,8 @@
     <color name="red">#F44336</color>
     <color name="surface">#FFFFFF</color>
     <color name="white">#FFFFFF</color>
+    <dimen name="color_size">40dp</dimen>
+    <dimen name="icono_size">56dp</dimen>
     <item name="btn_guardar_recordatorio" type="id"/>
     <item name="edit_fecha" type="id"/>
     <item name="edit_hora" type="id"/>

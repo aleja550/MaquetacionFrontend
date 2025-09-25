@@ -91,8 +91,8 @@ public class GestionarCategoriasActivity extends AppCompatActivity {
         fabAddCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Intent intent = new Intent(GestionarCategoriasActivity.this, NuevaCategoriaActivity.class);
-                // startActivity(intent);
+                Intent intent = new Intent(GestionarCategoriasActivity.this, NuevaCategoriaActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -183,6 +183,13 @@ public class GestionarCategoriasActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        // Actualizar la vista cuando se regrese de crear nueva categoría
+        updateCategoriasView();
+    }
+
+    @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
@@ -203,25 +210,100 @@ public class GestionarCategoriasActivity extends AppCompatActivity {
         // Obtener las categorías filtradas del manager
         List<Categoria> categoriasFiltradas = categoriasManager.getCategoriasFiltradas();
         
-        // Ocultar todas las tarjetas primero
-        hideAllCategoryCards();
+        // Limpiar el container (excepto el header)
+        clearCategoryCards();
         
-        // Mostrar solo las tarjetas de categorías que coinciden con el filtro
+        // Crear tarjetas dinámicamente para cada categoría
         for (Categoria categoria : categoriasFiltradas) {
-            showCategoryCard(categoria.getNombre());
+            createCategoryCard(categoria);
         }
     }
 
-    private void hideAllCategoryCards() {
-        for (int i = 0; i < categoriasContainer.getChildCount(); i++) {
-            View child = categoriasContainer.getChildAt(i);
-            if (child instanceof LinearLayout) {
-                // Omitir el header "MIS CATEGORÍAS"
-                if (child != categoriasContainer.getChildAt(0)) {
-                    child.setVisibility(View.GONE);
-                }
+    private void clearCategoryCards() {
+        // Mantener solo el header "MIS CATEGORÍAS" (primer hijo)
+        int childCount = categoriasContainer.getChildCount();
+        for (int i = childCount - 1; i > 0; i--) {
+            categoriasContainer.removeViewAt(i);
+        }
+    }
+
+    private void createCategoryCard(Categoria categoria) {
+        // Inflar el layout de la tarjeta de categoría
+        LinearLayout categoryCard = (LinearLayout) getLayoutInflater().inflate(R.layout.item_categoria_card, null);
+        
+        // Configurar la información de la categoría
+        configurarCategoryCard(categoryCard, categoria);
+        
+        // Agregar al container
+        categoriasContainer.addView(categoryCard);
+    }
+
+    private void configurarCategoryCard(LinearLayout categoryCard, Categoria categoria) {
+        // Obtener referencias a las vistas
+        View colorIndicator = categoryCard.findViewById(R.id.color_indicator);
+        TextView tvCategoryName = categoryCard.findViewById(R.id.tv_category_name);
+        TextView tvCategoryDescription = categoryCard.findViewById(R.id.tv_category_description);
+        TextView tvRemindersCount = categoryCard.findViewById(R.id.tv_reminders_count);
+        ImageView btnEdit = categoryCard.findViewById(R.id.btn_edit_category);
+        ImageView btnDelete = categoryCard.findViewById(R.id.btn_delete_category);
+
+        // Configurar color del indicador
+        if (categoria.getColor() != null) {
+            try {
+                int colorInt = android.graphics.Color.parseColor(categoria.getColor());
+                colorIndicator.setBackgroundColor(colorInt);
+            } catch (IllegalArgumentException e) {
+                colorIndicator.setBackgroundColor(android.graphics.Color.parseColor("#10B981"));
             }
         }
+
+        // Configurar nombre de la categoría con icono
+        String categoryText = categoria.getTextoCompleto();
+        tvCategoryName.setText(categoryText);
+        
+        // Configurar background del chip con el color de la categoría
+        if (categoria.getColor() != null) {
+            try {
+                int colorInt = android.graphics.Color.parseColor(categoria.getColor());
+                android.graphics.drawable.GradientDrawable drawable = new android.graphics.drawable.GradientDrawable();
+                drawable.setShape(android.graphics.drawable.GradientDrawable.RECTANGLE);
+                drawable.setColor(colorInt);
+                drawable.setCornerRadius(12f * getResources().getDisplayMetrics().density);
+                tvCategoryName.setBackground(drawable);
+            } catch (IllegalArgumentException e) {
+                tvCategoryName.setBackgroundResource(R.drawable.category_chip_dynamic);
+            }
+        }
+
+        // Configurar descripción basada en vibración
+        String descripcion = "Relajante";
+        if (categoria.getDescripcion() != null) {
+            if (categoria.getDescripcion().contains("Suave")) {
+                descripcion += " • Suave";
+            } else if (categoria.getDescripcion().contains("Normal")) {
+                descripcion += " • Normal";
+            } else if (categoria.getDescripcion().contains("Energética")) {
+                descripcion = "Energética • Fuerte";
+            }
+        }
+        tvCategoryDescription.setText(descripcion);
+
+        // Configurar contador de recordatorios (por ahora 0)
+        tvRemindersCount.setText("0 recordatorios activos");
+
+        // Configurar listeners de botones
+        btnEdit.setOnClickListener(v -> {
+            // TODO: Implementar editar categoría
+        });
+
+        btnDelete.setOnClickListener(v -> {
+            // Eliminar categoría del manager
+            CategoriasManager.getInstance().eliminarCategoria(categoria);
+            
+            // Navegar a pantalla de eliminación exitosa
+            Intent intent = new Intent(GestionarCategoriasActivity.this, CategoriaEliminadaExitosamenteActivity.class);
+            startActivity(intent);
+        });
     }
 
     private void showCategoryCard(String categoriaNombre) {

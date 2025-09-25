@@ -12,16 +12,220 @@
         "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/radio_selected.xml"
     },
     {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_card_border_trabajo.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/card_border_trabajo.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_icono_selector_selected.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/icono_selector_selected.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_button_primary.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/button_primary.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_card_border_ejercicio.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/card_border_ejercicio.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/layout_nav_header.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/layout/nav_header.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_ic_check.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/ic_check.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_ic_notification_bell.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/ic_notification_bell.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_success_circle_background.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/success_circle_background.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_category_chip_trabajo.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/category_chip_trabajo.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/layout_activity_nueva_categoria.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/layout/activity_nueva_categoria.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_category_background_green.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/category_background_green.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_category_chip_background.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/category_chip_background.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_input_background.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/input_background.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_reminder_card_background.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/reminder_card_background.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/layout_nav_header_main.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/layout/nav_header_main.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_ic_hamburger_menu.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/ic_hamburger_menu.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/mipmap-xhdpi_ic_launcher_round.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/mipmap-xhdpi/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_ic_arrow_right.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/ic_arrow_right.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_category_chip_estudio.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/category_chip_estudio.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_ic_user_outline.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/ic_user_outline.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/layout_activity_home_screen.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/layout/activity_home_screen.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_ic_check_circle.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/ic_check_circle.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_activate_button_background.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/activate_button_background.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/mipmap-xxhdpi_ic_launcher.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/mipmap-xxhdpi/ic_launcher.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_vibration_option_background.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/vibration_option_background.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_ic_nav_categorias.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/ic_nav_categorias.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_ic_nav_configuracion.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/ic_nav_configuracion.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_ic_delete.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/ic_delete.xml"
+    },
+    {
+        "merged": "com.remindmeplus.app-debug-32:/layout_activity_categoria_eliminada_exitosamente.xml.flat",
+        "source": "com.remindmeplus.app-main-34:/layout/activity_categoria_eliminada_exitosamente.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/mipmap-hdpi_ic_launcher.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/mipmap-hdpi/ic_launcher.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_nav_item_background.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/nav_item_background.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_ic_launcher.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/ic_launcher.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_card_border_estudio.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/card_border_estudio.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_category_background_orange.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/category_background_orange.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_ic_chart.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/ic_chart.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_secondary_button_background.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/secondary_button_background.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_ic_bell_ring_outline.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/ic_bell_ring_outline.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_category_chip_salud.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/category_chip_salud.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_category_chip_dynamic.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/category_chip_dynamic.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/mipmap-xxxhdpi_ic_launcher_round.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/mipmap-xxxhdpi/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/layout_activity_nuevo_recordatorio.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/layout/activity_nuevo_recordatorio.xml"
+    },
+    {
+        "merged": "com.remindmeplus.app-debug-32:/drawable_ic_delete_white.xml.flat",
+        "source": "com.remindmeplus.app-main-34:/drawable/ic_delete_white.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/layout_activity_recordatorio_creado_exitosamente.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/layout/activity_recordatorio_creado_exitosamente.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_category_chip_ejercicio.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/category_chip_ejercicio.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_ic_music.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/ic_music.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/layout_nav_drawer_configuracion.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/layout/nav_drawer_configuracion.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/mipmap-mdpi_ic_launcher.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/mipmap-mdpi/ic_launcher.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/mipmap-mdpi_ic_launcher_round.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/mipmap-mdpi/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_btn_selected_border.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/btn_selected_border.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_search_background.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/search_background.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_ic_stats.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/ic_stats.xml"
+    },
+    {
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/layout_activity_gestionar_categorias.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/layout/activity_gestionar_categorias.xml"
+    },
+    {
         "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
         "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
         "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_ic_nav_recordatorios.xml.flat",
         "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/ic_nav_recordatorios.xml"
-    },
-    {
-        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_card_border_trabajo.xml.flat",
-        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/card_border_trabajo.xml"
     },
     {
         "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_category_background_gray.xml.flat",
@@ -48,32 +252,20 @@
         "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/layout/activity_configuracion.xml"
     },
     {
-        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_card_border_ejercicio.xml.flat",
-        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/card_border_ejercicio.xml"
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_create_button_background.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/create_button_background.xml"
     },
     {
-        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_button_primary.xml.flat",
-        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/button_primary.xml"
-    },
-    {
-        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/layout_nav_header.xml.flat",
-        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/layout/nav_header.xml"
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/layout_activity_categoria_creada_exitosamente.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/layout/activity_categoria_creada_exitosamente.xml"
     },
     {
         "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_ic_person.xml.flat",
         "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/ic_person.xml"
     },
     {
-        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_ic_notification_bell.xml.flat",
-        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/ic_notification_bell.xml"
-    },
-    {
         "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/layout_activity_splash.xml.flat",
         "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/layout/activity_splash.xml"
-    },
-    {
-        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_category_chip_trabajo.xml.flat",
-        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/category_chip_trabajo.xml"
     },
     {
         "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_ic_lock_outline.xml.flat",
@@ -84,64 +276,36 @@
         "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/mipmap-xxhdpi/ic_launcher_round.xml"
     },
     {
-        "merged": "com.remindmeplus.app-debug-32:/layout_activity_gestionar_recordatorios.xml.flat",
-        "source": "com.remindmeplus.app-main-34:/layout/activity_gestionar_recordatorios.xml"
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_sound_selector_background.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/sound_selector_background.xml"
     },
     {
         "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/layout_nav_menu_item.xml.flat",
         "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/layout/nav_menu_item.xml"
     },
     {
-        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_category_background_green.xml.flat",
-        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/category_background_green.xml"
-    },
-    {
-        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_category_chip_background.xml.flat",
-        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/category_chip_background.xml"
-    },
-    {
-        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_reminder_card_background.xml.flat",
-        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/reminder_card_background.xml"
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_ic_play_circle.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/ic_play_circle.xml"
     },
     {
         "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/mipmap-anydpi-v26_ic_launcher.xml.flat",
         "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/mipmap-anydpi-v26/ic_launcher.xml"
     },
     {
-        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/layout_nav_header_main.xml.flat",
-        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/layout/nav_header_main.xml"
-    },
-    {
         "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_ic_arrow_drop_down.xml.flat",
         "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/ic_arrow_drop_down.xml"
-    },
-    {
-        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_ic_hamburger_menu.xml.flat",
-        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/ic_hamburger_menu.xml"
     },
     {
         "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_ic_nav_ayuda.xml.flat",
         "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/ic_nav_ayuda.xml"
     },
     {
-        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/mipmap-xhdpi_ic_launcher_round.xml.flat",
-        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/mipmap-xhdpi/ic_launcher_round.xml"
-    },
-    {
-        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_ic_arrow_right.xml.flat",
-        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/ic_arrow_right.xml"
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/layout_item_categoria_card.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/layout/item_categoria_card.xml"
     },
     {
         "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/layout_activity_estadisticas.xml.flat",
         "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/layout/activity_estadisticas.xml"
-    },
-    {
-        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_category_chip_estudio.xml.flat",
-        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/category_chip_estudio.xml"
-    },
-    {
-        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_ic_user_outline.xml.flat",
-        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/ic_user_outline.xml"
     },
     {
         "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_btn_border.xml.flat",
@@ -152,20 +316,12 @@
         "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/mipmap-xxxhdpi/ic_launcher.xml"
     },
     {
-        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/layout_activity_home_screen.xml.flat",
-        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/layout/activity_home_screen.xml"
-    },
-    {
         "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_ic_arrow_back.xml.flat",
         "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/ic_arrow_back.xml"
     },
     {
-        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_ic_check_circle.xml.flat",
-        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/ic_check_circle.xml"
-    },
-    {
-        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_activate_button_background.xml.flat",
-        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/activate_button_background.xml"
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_ic_stop_circle.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/ic_stop_circle.xml"
     },
     {
         "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/mipmap-hdpi_ic_launcher_round.xml.flat",
@@ -184,28 +340,12 @@
         "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/ic_nav_home.xml"
     },
     {
-        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/mipmap-xxhdpi_ic_launcher.xml.flat",
-        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/mipmap-xxhdpi/ic_launcher.xml"
-    },
-    {
         "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_category_background_purple.xml.flat",
         "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/category_background_purple.xml"
     },
     {
-        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_ic_nav_categorias.xml.flat",
-        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/ic_nav_categorias.xml"
-    },
-    {
-        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_ic_nav_configuracion.xml.flat",
-        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/ic_nav_configuracion.xml"
-    },
-    {
         "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_ic_category.xml.flat",
         "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/ic_category.xml"
-    },
-    {
-        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_ic_delete.xml.flat",
-        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/ic_delete.xml"
     },
     {
         "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/layout_nav_drawer.xml.flat",
@@ -216,80 +356,36 @@
         "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/ic_arrow_forward.xml"
     },
     {
-        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/mipmap-hdpi_ic_launcher.xml.flat",
-        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/mipmap-hdpi/ic_launcher.xml"
-    },
-    {
-        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_nav_item_background.xml.flat",
-        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/nav_item_background.xml"
-    },
-    {
         "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_ic_notifications.xml.flat",
         "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/ic_notifications.xml"
-    },
-    {
-        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_ic_launcher.xml.flat",
-        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/ic_launcher.xml"
-    },
-    {
-        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_card_border_estudio.xml.flat",
-        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/card_border_estudio.xml"
-    },
-    {
-        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_tab_selector.xml.flat",
-        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/tab_selector.xml"
-    },
-    {
-        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_ic_settings.xml.flat",
-        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/ic_settings.xml"
     },
     {
         "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_ic_help.xml.flat",
         "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/ic_help.xml"
     },
     {
-        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_category_background_orange.xml.flat",
-        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/category_background_orange.xml"
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_ic_settings.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/ic_settings.xml"
     },
     {
-        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_ic_chart.xml.flat",
-        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/ic_chart.xml"
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_tab_selector.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/tab_selector.xml"
     },
     {
         "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_card_border_salud.xml.flat",
         "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/card_border_salud.xml"
     },
     {
-        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_ic_bell_ring_outline.xml.flat",
-        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/ic_bell_ring_outline.xml"
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_icono_selector_background.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/icono_selector_background.xml"
     },
     {
-        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_category_chip_salud.xml.flat",
-        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/category_chip_salud.xml"
-    },
-    {
-        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/mipmap-xxxhdpi_ic_launcher_round.xml.flat",
-        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/mipmap-xxxhdpi/ic_launcher_round.xml"
-    },
-    {
-        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/layout_activity_nuevo_recordatorio.xml.flat",
-        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/layout/activity_nuevo_recordatorio.xml"
+        "merged": "com.remindmeplus.app-debug-32:/drawable_delete_circle_background.xml.flat",
+        "source": "com.remindmeplus.app-main-34:/drawable/delete_circle_background.xml"
     },
     {
         "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_ic_search.xml.flat",
         "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/ic_search.xml"
-    },
-    {
-        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/layout_activity_recordatorio_creado_exitosamente.xml.flat",
-        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/layout/activity_recordatorio_creado_exitosamente.xml"
-    },
-    {
-        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_category_chip_ejercicio.xml.flat",
-        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/category_chip_ejercicio.xml"
-    },
-    {
-        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/layout_nav_drawer_configuracion.xml.flat",
-        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/layout/nav_drawer_configuracion.xml"
     },
     {
         "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_button_secondary.xml.flat",
@@ -304,36 +400,16 @@
         "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/menu/navigation_menu.xml"
     },
     {
-        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/mipmap-mdpi_ic_launcher.xml.flat",
-        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/mipmap-mdpi/ic_launcher.xml"
-    },
-    {
-        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/mipmap-mdpi_ic_launcher_round.xml.flat",
-        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/mipmap-mdpi/ic_launcher_round.xml"
-    },
-    {
-        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_btn_selected_border.xml.flat",
-        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/btn_selected_border.xml"
-    },
-    {
-        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_search_background.xml.flat",
-        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/search_background.xml"
-    },
-    {
-        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_ic_stats.xml.flat",
-        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/ic_stats.xml"
-    },
-    {
-        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_circle_red.xml.flat",
-        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/circle_red.xml"
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_category_info_card_background.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/category_info_card_background.xml"
     },
     {
         "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/layout_activity_ayuda.xml.flat",
         "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/layout/activity_ayuda.xml"
     },
     {
-        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/layout_activity_gestionar_categorias.xml.flat",
-        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/layout/activity_gestionar_categorias.xml"
+        "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_circle_red.xml.flat",
+        "source": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-main-34:/drawable/circle_red.xml"
     },
     {
         "merged": "/Users/test/.gradle/daemon/8.11.1/com.remindmeplus.app-debug-32:/drawable_ic_home.xml.flat",

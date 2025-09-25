@@ -71,6 +71,16 @@
             android:exported="false"
             android:parentActivityName="com.remindmeplus.app.GestionarCategoriasActivity" />
         <activity
+            android:name="com.remindmeplus.app.CategoriaCreadaExitosamenteActivity"
+            android:exported="false"
+            android:parentActivityName="com.remindmeplus.app.GestionarCategoriasActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.remindmeplus.app.CategoriaEliminadaExitosamenteActivity"
+            android:exported="false"
+            android:parentActivityName="com.remindmeplus.app.GestionarCategoriasActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name="com.remindmeplus.app.AlarmaDesafioMatematicoActivity"
             android:exported="false"
             android:parentActivityName="com.remindmeplus.app.HomeScreenActivity"
